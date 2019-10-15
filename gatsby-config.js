@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic`,
       options: {
-        repositoryName: `we-three-travel-test`,
+        repositoryName: `${process.env.REPO_NAME}`,
         accessToken: `${process.env.API_KEY}`,
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
