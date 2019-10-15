@@ -1,0 +1,64 @@
+{
+  "Main" : {
+    "about-title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "about-title",
+        "placeholder" : "Title of About Section"
+      }
+    },
+    "about-content" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph, strong, em, hyperlink, image, embed, list-item, o-list-item",
+        "label" : "about-content",
+        "placeholder" : "About Content of page"
+      }
+    },
+    "contact-title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "heading1",
+        "label" : "contact-title",
+        "placeholder" : "Title of Contact Section"
+      }
+    },
+    "contact-content" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink, image, embed, list-item, o-list-item",
+        "label" : "contact-content",
+        "placeholder" : "Contact content of page"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "choices" : {
+          "hero_image" : {
+            "type" : "Slice",
+            "fieldset" : "Hero Image",
+            "description" : "Main About Image",
+            "icon" : "camera",
+            "display" : "list",
+            "non-repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1200
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "image"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
+      }
+    }
+  }
+}
