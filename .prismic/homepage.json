@@ -25,25 +25,33 @@
         "placeholder" : "Footer"
       }
     },
-    "image" : {
-      "type" : "Slice",
-      "fieldset" : "Image",
-      "description" : "Gatsby-Image",
-      "icon" : "camera_alt",
-      "display" : "list",
-      "non-repeat" : {
-        "image" : {
-          "type" : "Image",
-          "config" : {
-            "constraint" : {
-              "width" : 1200
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "choices" : {
+          "hero_image" : {
+            "type" : "Slice",
+            "fieldset" : "Hero Image",
+            "description" : "Main Post Image",
+            "icon" : "camera",
+            "display" : "list",
+            "non-repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1200
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "image"
+                }
+              }
             },
-            "thumbnails" : [ ],
-            "label" : "image"
+            "repeat" : { }
           }
         }
-      },
-      "repeat" : { }
+      }
     }
   }
 }

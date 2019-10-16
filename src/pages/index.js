@@ -1,21 +1,65 @@
-import React from "react"
-import { Link } from "gatsby"
-
+import React, { Component } from "react"
+import PropTypes from 'prop-types'
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import { graphql } from 'gatsby'
+import HeroImageSlice from "../components/heroImageSlice"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+class IndexPage extends Component {
+  render() {
+    const {
+      data: { homepage }
+    } = this.props
+    return (
+      <Layout>
+        <SEO title="Home" />
+        <h1>Hi people</h1>
+        <h1>{homepage.data.title.text}</h1>
+        <span dangerouslySetInnerHTML={{ __html: homepage.data.content.html }}></span>
+        <div>
+          <HeroImageSlice data={homepage.data.body}/>
+        </div>
+      </Layout>     
+    )
+  }
+}
 
 export default IndexPage
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    homepage: PropTypes.object.isRequired
+  }).isRequired,
+}
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    homepage: prismicHomepage {
+      data {
+        title {
+          text
+        }
+        content {
+          html
+        }
+        body {
+          ... on PrismicHomepageBodyHeroImage {
+            slice_type
+            id
+            primary {
+              image {
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

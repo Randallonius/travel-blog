@@ -6,7 +6,6 @@ const Post = ({ data: { prismicPost } }) => {
   return (
     <>
       <h1>{data.title.text}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
     </>
   )
 }
@@ -20,9 +19,6 @@ export const pageQuery = graphql`
       data {
         title {
           text
-        }
-        content {
-          html
         }
       }
     }

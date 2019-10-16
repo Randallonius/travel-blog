@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
+        <aside>This is the aside</aside>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
