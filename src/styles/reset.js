@@ -1,77 +1,126 @@
 import { css } from '@emotion/core'
 
 const reset = css`
-html, .root {
-  font-size: 16px;
-  line-height: 24px;
-}
-body, .article {
-  
-font-family: sans-serif;
-font-family: sans-serif;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin: auto;
-}
-h1, .h1 {
-  font-size: 4.25rem;
-  line-height: 4.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 3rem;
-}
-h2, .h2 {
-  font-size: 2.625rem;
-  line-height: 3rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-h3, .h3 {
-  font-size: 1.625rem;
-  line-height: 3rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0rem;
-}
-h4, .h4 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0rem;
-}
-h5, .h5 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0rem;
-}
-p, ul, ol, pre, table, blockquote  {
-  margin-top: 0rem;
-  margin-bottom: 1.5rem;
-}
-ul ul, ol ol, ul ol, ol ul {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-}
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  html {
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    height: 100%;
+  }
+  body {
+    margin: 0;
+  }
+  [tabindex='-1']:focus {
+    outline: none !important;
+  }
+  pre {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+  }
+  figure {
+    margin: 0 0 1rem 0;
+  }
+  img {
+    vertical-align: middle;
+  }
+  [role='button'] {
+    cursor: pointer;
+  }
+  a,
+  area,
+  button,
+  [role='button'],
+  input,
+  label,
+  select,
+  summary,
+  textarea {
+    touch-action: manipulation;
+  }
+  table {
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  caption {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    color: #fff;
+    text-align: center;
+    caption-side: bottom;
+  }
+  th {
+    text-align: left;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+  button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+  input,
+  button,
+  select,
+  textarea {
+    line-height: inherit;
+  }
+  input[type='date'],
+  input[type='time'],
+  input[type='datetime-local'],
+  input[type='month'] {
+    -webkit-appearance: listbox;
+  }
+  textarea {
+    resize: vertical;
+  }
+  fieldset {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+  }
+  input[type='search'] {
+    -webkit-appearance: none;
+  }
+  output {
+    display: inline-block;
+  }
+  svg:not(:root) {
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  [hidden] {
+    display: none !important;
+  }
 
-/* Let's make sure all's aligned */
-hr, .hr {
-  border: 1px solid;
-  margin: -1px 0;
-}
-a, b, i, strong, em, small, code {
-  line-height: 0;
-}
-sub, sup {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
+  #disqus_thread {
+    border: 1px solid black;
+    margin: 0;
+    width: 100%;
+    padding: 20px;
+  }
 
+  .body--slide-open {
+    overflow: hidden;
+    height:100%;
+  }
 `
 
 export default reset
