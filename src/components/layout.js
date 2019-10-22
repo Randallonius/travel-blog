@@ -5,9 +5,9 @@ import { ThemeProvider } from 'emotion-theming'
 import { Global, css } from '@emotion/core'
 
 import Header from "./header"
-import "./layout.css"
 import { theme, reset } from '../styles'
 import 'typeface-poppins'
+import Headroom from 'react-headroom'
 
 const globalStyle = css`
   ${reset}
@@ -60,14 +60,16 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <>
         <Global styles={globalStyle} />
-        <Header siteTitle={data.site.siteMetadata.title} />
-          <main>{children}</main>
-          <aside>This is the aside</aside>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+        <Headroom>
+          <Header siteTitle={data.site.siteMetadata.title} />
+        </Headroom>
+        <main>{children}</main>
+        <aside>This is the aside</aside>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
       </>
     </ThemeProvider>
   )
