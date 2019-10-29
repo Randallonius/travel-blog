@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import HeroImage from '../slices/heroImage'
 
-class HeroImageSlice extends Component {
+class HeroImageContainer extends Component {
   render() {
     const { data } = this.props
     const slice = data.map(s =>
@@ -16,8 +16,8 @@ class HeroImageSlice extends Component {
   }
 }
 
-export default HeroImageSlice
+export default HeroImageContainer
 
-HeroImageSlice.propTypes = {
+HeroImageContainer.propTypes = {
   data: PropTypes.array.isRequired,
 }

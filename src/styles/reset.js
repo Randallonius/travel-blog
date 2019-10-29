@@ -116,11 +116,6 @@ const reset = css`
     width: 100%;
     padding: 20px;
   }
-
-  .body--slide-open {
-    overflow: hidden;
-    height:100%;
-  }
 `
 
 export default reset

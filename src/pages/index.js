@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql } from 'gatsby'
-import HeroImageSlice from "../components/heroImageSlice"
+import HeroImageContainer from "../components/heroImageContainer"
 
 class IndexPage extends Component {
   render() {
@@ -17,7 +17,7 @@ class IndexPage extends Component {
         <h1>{homepage.data.title.text}</h1>
         <span dangerouslySetInnerHTML={{ __html: homepage.data.content.html }}></span>
         <div>
-          <HeroImageSlice data={homepage.data.body}/>
+          <HeroImageContainer data={homepage.data.body}/>
         </div>
       </Layout>     
     )
@@ -50,7 +50,7 @@ export const pageQuery = graphql`
               image {
                 localFile {
                   childImageSharp {
-                    fluid {
+                    fluid(maxWidth: 1300, quality: 90) {
                       ...GatsbyImageSharpFluid
                     }
                   }
