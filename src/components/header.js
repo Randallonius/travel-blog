@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import SlideContainer from './slide/slideContainer'
+import SlideButtonContainer from './slide/slideButtonContainer'
 
 const StyledHeader = styled.nav`
   background-color: ${props => props.theme.colors.white};
@@ -35,6 +37,7 @@ const HeaderLeft = styled.div`
 `
 const HeaderRight = styled.div`
   display: flex;
+  align-items: center;
 `
 const HeaderLink = styled(Link)`
   font-size: 1rem;
@@ -61,6 +64,26 @@ const HeaderLink = styled(Link)`
 `
 
 class Header extends Component {
+  constructor(props, context) {
+    super(props, context)
+    this.state = {
+      visible: false,
+    }
+    this.handleClick = this.handleClick.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this)
+  }
+
+  handleClick(e) {
+    this.toggleMenu()
+    e.stopPropagation()
+  }
+
+  toggleMenu() {
+    this.setState({
+      visible: !this.state.visible,
+    })
+  }
+
   render() {
     return (
       <StyledHeader>
@@ -76,7 +99,10 @@ class Header extends Component {
           <HeaderLink to="/about" aria-label="About Page">
             About
           </HeaderLink>
-
+          <SlideButtonContainer handleClick={this.handleClick}/>
+          <SlideContainer 
+          handleClick={this.handleClick}
+          menuVisibility={this.state.visible}/>
         </HeaderRight>
       </StyledHeader>
     )

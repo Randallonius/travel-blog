@@ -43,6 +43,10 @@ const globalStyle = css`
     font-size: 1em;
     line-height: 1.5em;
   }
+  .body--slide-open {
+    overflow: hidden;
+    height:100%;
+  }
 `
 
 const Layout = ({ children }) => {

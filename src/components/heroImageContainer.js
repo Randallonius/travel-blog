@@ -16,8 +16,8 @@ class HeroImageContainer extends Component {
   }
 }
 
-export default HeroImageSliceContainer
+export default HeroImageContainer
 
-HeroImageSliceContainer.propTypes = {
+HeroImageContainer.propTypes = {
   data: PropTypes.array.isRequired,
 }
