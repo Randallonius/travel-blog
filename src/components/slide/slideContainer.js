@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import { FiX } from 'react-icons/fi'
-import MapContainer from '../mapContainer'
+import MapContainer from '../map/mapContainer'
 
 const Slide = styled.div`
   width: 100vw;

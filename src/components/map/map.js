@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
-import '../styles/map.css'
+import '../../styles/map.css'
 
 type Position = [number, number]
 
