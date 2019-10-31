@@ -1,0 +1,15 @@
+.leaflet-container {
+  width: 90%;
+  height: 200px;
+  margin: 20px auto;
+}
+
+.leaflet-control-attribution a {
+  font-size: 12px;
+} 
+
+@media only screen and (min-width: 400px) {
+  .leaflet-container {
+    height: 300px;
+  }
+}
