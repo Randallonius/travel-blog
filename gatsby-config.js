@@ -19,6 +19,8 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-emotion',
+    `gatsby-plugin-flow`,
+    `gatsby-plugin-react-leaflet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
