@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql } from 'gatsby'
-import HeroImageContainer from "../components/heroImageContainer"
+import HeroImageContainer from '../components/hero/heroImageContainer'
+import HeroTextContainer from '../components/hero/heroTextContainer'
 
 class IndexPage extends Component {
   render() {
@@ -13,12 +14,8 @@ class IndexPage extends Component {
     return (
       <Layout>
         <SEO title="Home" />
-        <h1>Hi people</h1>
-        <h1>{homepage.data.title.text}</h1>
-        <span dangerouslySetInnerHTML={{ __html: homepage.data.content.html }}></span>
-        <div>
-          <HeroImageContainer data={homepage.data.body}/>
-        </div>
+        <HeroImageContainer data={homepage.data}/>
+        <HeroTextContainer data={homepage.data}/>
       </Layout>     
     )
   }
