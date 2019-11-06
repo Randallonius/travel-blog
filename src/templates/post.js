@@ -1,5 +1,5 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
 const Post = ({ data: { prismicPost } }) => {
   const { data } = prismicPost

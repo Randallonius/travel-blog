@@ -6,7 +6,7 @@ const Title = styled.p`
   text-align: center;
   border-bottom: 1px solid;
   width: 80%;
-  margin: 0px auto .5em;
+  margin: 0px auto 0.5em;
   text-transform: uppercase;
 
   @media screen and (min-width: ${props => props.theme.breakpoints.s}) {

@@ -1,5 +1,6 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 import styled from '@emotion/styled'
+import PropTypes from 'prop-types'
 
 const TextContainer = styled.div`
   display: none;
@@ -9,7 +10,7 @@ const TextContainer = styled.div`
     position: absolute;
     top: 35%;
     border: 1px solid black;
-    background: rgba(255,255,255,0.7);
+    background: rgba(255, 255, 255, 0.7);
   }
 
   h1 {
@@ -22,14 +23,17 @@ const TextInnerContainer = styled.div`
   width: 90%;
 `
 
-class HeroTextContainer extends Component{
+class HeroTextContainer extends Component {
   render() {
+    const {
+      data: { content, title },
+    } = this.props
     return (
       <TextContainer>
         <TextInnerContainer>
           <h1>Welcome to</h1>
-          <h1>{this.props.data.title.text}</h1>
-          <span dangerouslySetInnerHTML={{ __html: this.props.data.content.html }}></span>
+          <h1>{title.text}</h1>
+          <span dangerouslySetInnerHTML={{ __html: content.html }} />
         </TextInnerContainer>
       </TextContainer>
     )
@@ -37,3 +41,10 @@ class HeroTextContainer extends Component{
 }
 
 export default HeroTextContainer
+
+HeroTextContainer.propTypes = {
+  data: PropTypes.shape({
+    content: PropTypes.object.isRequired,
+    title: PropTypes.object.isRequired,
+  }).isRequired,
+}

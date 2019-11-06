@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import { FiMapPin } from 'react-icons/fi'
+import PropTypes from 'prop-types'
 import { bounce } from '../../styles/keyframes'
 
 const SlideButton = styled.div`
@@ -13,7 +14,7 @@ const SlideButton = styled.div`
   height: 30px;
   text-align: center;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.s})  {
+  @media screen and (min-width: ${props => props.theme.breakpoints.s}) {
     font-size: 1.5em;
     &:hover {
       animation: ${bounce} 2s ease infinite;
@@ -21,14 +22,19 @@ const SlideButton = styled.div`
   }
 `
 
-class SlideButtonContainer extends Component{
+class SlideButtonContainer extends Component {
   render() {
-    return(
+    const { handleClick } = this.props
+    return (
       <SlideButton>
-        <FiMapPin onMouseUp={this.props.handleClick}/>
+        <FiMapPin onMouseUp={handleClick} />
       </SlideButton>
     )
   }
 }
 
 export default SlideButtonContainer
+
+SlideButtonContainer.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+}

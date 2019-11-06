@@ -1,6 +1,7 @@
-import React, { Component } from "react"
-import HeroImage from './heroImage'
+import React, { Component } from 'react'
 import styled from '@emotion/styled'
+import PropTypes from 'prop-types'
+import HeroImage from './heroImage'
 
 const Hero = styled.div`
   position: relative;
@@ -20,10 +21,14 @@ const ImageContainer = styled.div`
 
 class HeroImageContainer extends Component {
   render() {
-    return(
+    // const { body } = this.props
+    const {
+      data: { body },
+    } = this.props
+    return (
       <Hero>
         <ImageContainer>
-          <HeroImage data={this.props.data.body}/>
+          <HeroImage data={body} />
         </ImageContainer>
       </Hero>
     )
@@ -31,3 +36,9 @@ class HeroImageContainer extends Component {
 }
 
 export default HeroImageContainer
+
+HeroImageContainer.propTypes = {
+  data: PropTypes.shape({
+    body: PropTypes.array.isRequired,
+  }).isRequired,
+}

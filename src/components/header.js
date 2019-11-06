@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import SlideContainer from './slide/slideContainer'
 import SlideButtonContainer from './slide/slideButtonContainer'
@@ -23,7 +24,7 @@ const StyledHeader = styled.nav`
   }
 `
 const HeaderLeft = styled.div`
-  margin-bottom: 1.250em;
+  margin-bottom: 1.25em;
   @media (min-width: ${props => props.theme.breakpoints.s}) {
     margin-bottom: 0;
   }
@@ -63,14 +64,25 @@ const HeaderLink = styled(Link)`
   }
 `
 
+const SLIDE_OPEN_CLASS = 'body--slide-open'
+
 class Header extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
       visible: false,
     }
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this)
     this.toggleMenu = this.toggleMenu.bind(this)
+  }
+
+  componentDidUpdate() {
+    const { visible } = this.state
+    if (visible) {
+      document.body.classList.add(SLIDE_OPEN_CLASS)
+    } else {
+      document.body.classList.remove(SLIDE_OPEN_CLASS)
+    }
   }
 
   handleClick(e) {
@@ -79,17 +91,20 @@ class Header extends Component {
   }
 
   toggleMenu() {
+    const { visible } = this.state
     this.setState({
-      visible: !this.state.visible,
+      visible: !visible,
     })
   }
 
   render() {
+    const { visible } = this.state
+    const { siteTitle } = this.props
     return (
       <StyledHeader>
         <HeaderLeft>
           <Link to="/" aria-label="Back to Home">
-            {this.props.siteTitle}
+            {siteTitle}
           </Link>
         </HeaderLeft>
         <HeaderRight>
@@ -99,10 +114,8 @@ class Header extends Component {
           <HeaderLink to="/about" aria-label="About Page">
             About
           </HeaderLink>
-          <SlideButtonContainer handleClick={this.handleClick}/>
-          <SlideContainer 
-          handleClick={this.handleClick}
-          menuVisibility={this.state.visible}/>
+          <SlideButtonContainer handleClick={this.handleClick} />
+          <SlideContainer handleClick={this.handleClick} menuVisibility={visible} />
         </HeaderRight>
       </StyledHeader>
     )
@@ -110,3 +123,7 @@ class Header extends Component {
 }
 
 export default Header
+
+Header.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
+}
