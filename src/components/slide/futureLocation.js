@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import styled from '@emotion/styled'
-
-const SubTitle = styled.h2`
-  font-weight: 400;
-  text-align: center;
-`
+import SubTitle from '../subTitle'
 
 const CountryList = styled.ul`
   text-align: center;
