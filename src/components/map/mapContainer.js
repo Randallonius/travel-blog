@@ -1,11 +1,11 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 import LeafletMap from './map'
 
 const MapContainer = () => {
   const data = useStaticQuery(graphql`
     query MapData {
-      allPrismicGeo(sort: {order: ASC, fields: id}) {
+      allPrismicGeo(sort: { order: ASC, fields: id }) {
         edges {
           node {
             data {
@@ -25,11 +25,7 @@ const MapContainer = () => {
       }
     }
   `)
-  return (
-    <div>
-    {typeof window !== 'undefined' && <LeafletMap mapData={data.allPrismicGeo}/>}
-    </div>
-  )
+  return <div>{typeof window !== 'undefined' && <LeafletMap mapData={data.allPrismicGeo} />}</div>
 }
 
 export default MapContainer

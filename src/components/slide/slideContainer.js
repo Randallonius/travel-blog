@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import { FiX } from 'react-icons/fi'
+import PropTypes from 'prop-types'
 import MapContainer from '../map/mapContainer'
 import CurrentLocation from './currentLocation'
 import FutureLocation from './futureLocation'
@@ -15,8 +16,7 @@ const Slide = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  transition: transform .3s
-              cubic-bezier(0, .52, 0, 1);
+  transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   z-index: 1000;
@@ -29,7 +29,7 @@ const Slide = styled.div`
     transform: translate3d(0vw, 0, 0);
   }
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.s})  {
+  @media screen and (min-width: ${props => props.theme.breakpoints.s}) {
     width: 80vw;
 
     &.hide {
@@ -71,35 +71,33 @@ const CloseButton = styled.div`
   }
 `
 
-const SLIDE_OPEN_CLASS = "body--slide-open";
-
 class SlideContainer extends Component {
-  componentDidUpdate() {
-    if (this.props.menuVisibility) {
-      document.body.classList.add(SLIDE_OPEN_CLASS);
-    } else {
-      document.body.classList.remove(SLIDE_OPEN_CLASS);
-    }
-  }
-
   render() {
     let visibility = 'hide'
+    const { menuVisibility, handleClick } = this.props
 
-    if (this.props.menuVisibility) {
+    if (menuVisibility) {
       visibility = 'show'
     }
-    return(
+    return (
       <Slide className={visibility}>
-        <CloseButton onClick={this.props.handleClick}><FiX /></CloseButton>
+        <CloseButton onClick={handleClick}>
+          <FiX />
+        </CloseButton>
         <Title>Where are we currently?</Title>
         <CurrentLocation />
         <Title>Where have we been?</Title>
         <MapContainer />
         <Title>Where to next?</Title>
-        <FutureLocation/>
+        <FutureLocation />
       </Slide>
     )
   }
 }
 
 export default SlideContainer
+
+SlideContainer.propTypes = {
+  menuVisibility: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
+}
