@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import { FiX } from 'react-icons/fi'
 import MapContainer from '../map/mapContainer'
+import CurrentLocation from './currentLocation'
+import FutureLocation from './futureLocation'
+import Title from '../title'
 
 const Slide = styled.div`
   width: 100vw;
@@ -88,7 +91,12 @@ class SlideContainer extends Component {
     return(
       <Slide className={visibility}>
         <CloseButton onClick={this.props.handleClick}><FiX /></CloseButton>
+        <Title>Where are we currently?</Title>
+        <CurrentLocation />
+        <Title>Where have we been?</Title>
         <MapContainer />
+        <Title>Where to next?</Title>
+        <FutureLocation/>
       </Slide>
     )
   }
