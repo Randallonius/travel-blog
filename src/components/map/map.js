@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import PropTypes from 'prop-types'
 import '../../styles/map.css'
 
 type Position = [number, number]
@@ -18,8 +19,9 @@ const MyPopupMarker = ({ content, position }: Props) => (
 )
 
 const MyMarkersList = ({ markers }: { markers: Array<MarkerData> }) => {
+  // eslint-disable-next-line react/jsx-props-no-spreading
   const items = markers.map(({ key, ...props }) => <MyPopupMarker key={key} {...props} />)
-  return <Fragment>{items}</Fragment>
+  return <>{items}</>
 }
 
 type State = {
@@ -27,47 +29,50 @@ type State = {
 }
 
 class LeafletMap extends Component<{}, State> {
-  static defaultProps = {
-    markers: {
-      key: "",
-      position: [51, -1],
-      content: "",
-    }
-  }
   constructor(props) {
     super(props)
-    this.state = { 
+    this.state = {
       markers: {
-        key: "",
+        key: '',
         position: [],
-        content: "",
-      }
+        content: '',
+      },
     }
-    this.mapStore = this.mapStore.bind(this);
+    this.mapStore = this.mapStore.bind(this)
   }
+
   componentDidMount() {
     this.mapStore()
   }
+
   mapStore() {
+    const { mapData } = this.props
+
     this.setState({
-      markers: this.props.mapData.edges.map(m => ({
+      markers: mapData.edges.map(m => ({
         key: m.node.data.coordinate_marker.text,
         position: [m.node.data.coordinates.latitude, m.node.data.coordinates.longitude],
         content: m.node.data.coordinate_title.text,
-      }))
+      })),
     })
   }
+
   render() {
+    const { markers } = this.state
     return (
       <Map center={[51.505, -0.09]} zoom={1}>
         <TileLayer
-          attribution='Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+          attribution="Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012"
           url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
         />
-        <MyMarkersList markers={this.state.markers} />
+        <MyMarkersList markers={markers} />
       </Map>
     )
   }
 }
 
 export default LeafletMap
+
+LeafletMap.propTypes = {
+  mapData: PropTypes.object.isRequired,
+}
