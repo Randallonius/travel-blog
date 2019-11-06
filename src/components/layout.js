@@ -1,13 +1,12 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'emotion-theming'
 import { Global, css } from '@emotion/core'
-
-import Header from "./header"
+import Headroom from 'react-headroom'
+import Header from './header'
 import { theme, reset } from '../styles'
 import 'typeface-poppins'
-import Headroom from 'react-headroom'
 
 const globalStyle = css`
   ${reset}
@@ -45,7 +44,7 @@ const globalStyle = css`
   }
   .body--slide-open {
     overflow: hidden;
-    height:100%;
+    height: 100%;
   }
 `
 
@@ -69,11 +68,7 @@ const Layout = ({ children }) => {
         </Headroom>
         <main>{children}</main>
         <aside>This is the aside</aside>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <footer>© {new Date().getFullYear()}, Built with love by Randallonius</footer>
       </>
     </ThemeProvider>
   )
