@@ -110,6 +110,10 @@ const reset = css`
     display: none !important;
   }
 
+  ul {
+    padding: 0;
+  }
+
   #disqus_thread {
     border: 1px solid black;
     margin: 0;
