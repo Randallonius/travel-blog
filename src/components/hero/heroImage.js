@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Hero from '../slices/hero'
+import Hero from '../../slices/hero'
 
 class HeroImage extends Component {
   render() {

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import HeroImage from '../heroImage'
+import HeroImage from './heroImage'
 import styled from '@emotion/styled'
 
 const Hero = styled.div`
