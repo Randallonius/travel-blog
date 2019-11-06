@@ -1,22 +1,22 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 import HeroImageContainer from '../components/hero/heroImageContainer'
 import HeroTextContainer from '../components/hero/heroTextContainer'
 
 class IndexPage extends Component {
   render() {
     const {
-      data: { homepage }
+      data: { homepage },
     } = this.props
     return (
       <Layout>
         <SEO title="Home" />
-        <HeroImageContainer data={homepage.data}/>
-        <HeroTextContainer data={homepage.data}/>
-      </Layout>     
+        <HeroImageContainer data={homepage.data} />
+        <HeroTextContainer data={homepage.data} />
+      </Layout>
     )
   }
 }
@@ -25,7 +25,7 @@ export default IndexPage
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    homepage: PropTypes.object.isRequired
+    homepage: PropTypes.object.isRequired,
   }).isRequired,
 }
 
