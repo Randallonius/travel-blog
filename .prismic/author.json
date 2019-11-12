@@ -1,0 +1,50 @@
+{
+  "Main" : {
+    "name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "name",
+        "placeholder" : "Author's name"
+      }
+    },
+    "image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 100,
+          "height" : 100
+        },
+        "thumbnails" : [ ],
+        "label" : "image"
+      }
+    },
+    "interests" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "interests",
+        "placeholder" : "Author's interests"
+      }
+    },
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "title",
+        "placeholder" : "Author's title"
+      }
+    },
+    "stamps" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "stamps",
+        "placeholder" : "Author's passport stamps"
+      }
+    },
+    "favorite_country" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "favorite_country",
+        "placeholder" : "Author's favorite country visted"
+      }
+    }
+  }
+}
