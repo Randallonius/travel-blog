@@ -5,15 +5,11 @@ import HeroImage from './heroImage'
 
 const Hero = styled.div`
   position: relative;
+  overflow: hidden;
 `
 
 const ImageContainer = styled.div`
   width: 100%;
-  @media (min-width: ${props => props.theme.breakpoints.l}) {
-    .gatsby-image-wrapper {
-      max-height: 600px;
-    }
-  }
   div {
     padding: 0;
   }
@@ -21,7 +17,6 @@ const ImageContainer = styled.div`
 
 class HeroImageContainer extends Component {
   render() {
-    // const { body } = this.props
     const {
       data: { body },
     } = this.props

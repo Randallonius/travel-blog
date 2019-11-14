@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import HeroImageContainer from '../components/hero/heroImageContainer'
-import HeroTextContainer from '../components/hero/heroTextContainer'
 import Wrapper from '../components/wrapper'
 import Title from '../components/title'
 import PostList from '../components/postList/postList'
@@ -21,7 +20,6 @@ class IndexPage extends Component {
       <Layout>
         <SEO title="Home" />
         <HeroImageContainer data={homepage.data} />
-        <HeroTextContainer data={homepage.data} />
         <IndexWrapper style={{ paddingTop: '3rem', paddingBottom: '2rem' }}>
           <Title>Recent Posts</Title>
           <PostList posts={posts.edges} location={location}/>
@@ -59,7 +57,7 @@ export const pageQuery = graphql`
               image {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 1300, quality: 90) {
+                    fluid(maxWidth: 1600) {
                       ...GatsbyImageSharpFluid
                     }
                   }

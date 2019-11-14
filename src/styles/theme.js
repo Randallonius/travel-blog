@@ -1,5 +1,6 @@
 const theme = {
   colors: {
+    accentBlue: '#00c4cc',
     bg: '#f5f5f5',
     black: '#000',
     greyLight: '#EBEDF2',
@@ -7,7 +8,7 @@ const theme = {
     greyHover: '#777777',
     greyDark: '#303643',
     primary: '#161616',
-    white: '#fff'
+    white: '#fff',
   },
   maxWidth: '1300px',
   maxWidthText: '900px',
