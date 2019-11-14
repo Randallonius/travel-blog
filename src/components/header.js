@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import SlideContainer from './slide/slideContainer'
 import SlideButtonContainer from './slide/slideButtonContainer'
+import HeaderCategories from './headerCategories'
+import HeaderLogo from './headerLogo'
 
 const StyledHeader = styled.nav`
   background-color: ${props => props.theme.colors.white};
@@ -11,6 +12,7 @@ const StyledHeader = styled.nav`
   padding: 1.5rem 3rem;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 
   @media (min-width: ${props => props.theme.breakpoints.s}) {
     flex-direction: row;
@@ -30,7 +32,6 @@ const HeaderLeft = styled.div`
   }
   a {
     font-size: 1.5rem;
-    font-weight: 700;
     @media (min-width: ${props => props.theme.breakpoints.s}) {
       font-size: 2.25rem;
     }
@@ -39,6 +40,10 @@ const HeaderLeft = styled.div`
 const HeaderRight = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 1.25em;
+  @media (min-width: ${props => props.theme.breakpoints.s}) {
+    margin-bottom: 0;
+  }
 `
 const HeaderLink = styled(Link)`
   font-size: 1rem;
@@ -53,7 +58,7 @@ const HeaderLink = styled(Link)`
     display: block;
     width: 0;
     height: 2px;
-    background: ${props => props.theme.colors.greyDark};
+    background: ${props => props.theme.colors.accentBlue};
     transition: width 0.25s;
     position: relative;
     top: 5px;
@@ -62,6 +67,14 @@ const HeaderLink = styled(Link)`
   :hover::after {
     width: 100%;
   }
+`
+
+const CategoryContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 1.5em;
+  align-items: center;
 `
 
 const SLIDE_OPEN_CLASS = 'body--slide-open'
@@ -99,13 +112,10 @@ class Header extends Component {
 
   render() {
     const { visible } = this.state
-    const { siteTitle } = this.props
     return (
       <StyledHeader>
         <HeaderLeft>
-          <Link to="/" aria-label="Back to Home">
-            {siteTitle}
-          </Link>
+          <HeaderLogo />
         </HeaderLeft>
         <HeaderRight>
           <HeaderLink to="/" aria-label="Back to Home">
@@ -117,13 +127,12 @@ class Header extends Component {
           <SlideButtonContainer handleClick={this.handleClick} />
           <SlideContainer handleClick={this.handleClick} menuVisibility={visible} />
         </HeaderRight>
+        <CategoryContainer>
+          <HeaderCategories />
+        </CategoryContainer>
       </StyledHeader>
     )
   }
 }
 
 export default Header
-
-Header.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
-}

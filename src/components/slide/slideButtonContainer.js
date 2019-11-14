@@ -18,6 +18,7 @@ const SlideButton = styled.div`
     font-size: 1.5em;
     &:hover {
       animation: ${bounce} 2s ease infinite;
+      color: ${props => props.theme.colors.accentBlue};
     }
   }
 `
