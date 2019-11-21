@@ -7,13 +7,14 @@ import HeroImageContainer from '../components/hero/heroImageContainer'
 import Wrapper from '../components/wrapper'
 import Title from '../components/title'
 import PostList from '../components/postList/postList'
+import InstagramList from '../components/instagram/instagramList'
 
 const IndexWrapper = Wrapper.withComponent('main')
 
 class IndexPage extends Component {
   render() {
     const {
-      data: { homepage, posts },
+      data: { homepage, posts, instagrams },
       location,
     } = this.props
     return (
@@ -22,7 +23,9 @@ class IndexPage extends Component {
         <HeroImageContainer data={homepage.data} />
         <IndexWrapper style={{ paddingTop: '3rem', paddingBottom: '2rem' }}>
           <Title>Recent Posts</Title>
-          <PostList posts={posts.edges} location={location}/>
+          <PostList posts={posts.edges} location={location} />
+          <Title>Instagram</Title>
+          <InstagramList instagrams={instagrams.edges} />
         </IndexWrapper>
       </Layout>
     )
@@ -35,6 +38,7 @@ IndexPage.propTypes = {
   data: PropTypes.shape({
     homepage: PropTypes.object.isRequired,
     posts: PropTypes.object.isRequired,
+    instagrams: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,
 }
@@ -134,6 +138,37 @@ export const pageQuery = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+    instagrams: allInstaNode(limit: 8, sort: { fields: [timestamp], order: DESC }) {
+      edges {
+        node {
+          id
+          likes
+          comments
+          mediaType
+          preview
+          original
+          timestamp
+          caption
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 300, quality: 90) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          # Only available with the public api scraper
+          thumbnails {
+            src
+            config_width
+            config_height
+          }
+          dimensions {
+            height
+            width
           }
         }
       }
