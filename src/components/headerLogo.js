@@ -8,8 +8,8 @@ const LogoContainer = styled.div`
   width: 3.125em;
 
   @media (min-width: ${props => props.theme.breakpoints.s}) {
-    height: 6.25em;
-    width: 6.25em;
+    height: 4em;
+    width: 4em;
   }
 `
 

@@ -5,6 +5,7 @@ import { ThemeProvider } from 'emotion-theming'
 import { Global, css } from '@emotion/core'
 import Headroom from 'react-headroom'
 import Header from './header'
+import Footer from './footer'
 import { theme, reset } from '../styles'
 import 'typeface-poppins'
 
@@ -68,7 +69,7 @@ const Layout = ({ children }) => {
         </Headroom>
         <main>{children}</main>
         <aside>This is the aside</aside>
-        <footer>© {new Date().getFullYear()}, Built with love by Randallonius</footer>
+        <Footer />
       </>
     </ThemeProvider>
   )
