@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import SlideContainer from './slide/slideContainer'
@@ -80,60 +80,37 @@ const CategoryContainer = styled.div`
 
 const SLIDE_OPEN_CLASS = 'body--slide-open'
 
-class Header extends Component {
-  constructor(props, context) {
-    super(props, context)
-    this.state = {
-      visible: false,
-    }
-    this.handleClick = this.handleClick.bind(this)
-    this.toggleMenu = this.toggleMenu.bind(this)
+function Header() {
+  const [open, setOpen] = useState(false)
+
+  if (open) {
+    document.body.classList.add(SLIDE_OPEN_CLASS)
+  } else {
+    document.body.classList.remove(SLIDE_OPEN_CLASS)
   }
 
-  componentDidUpdate() {
-    const { visible } = this.state
-    if (visible) {
-      document.body.classList.add(SLIDE_OPEN_CLASS)
-    } else {
-      document.body.classList.remove(SLIDE_OPEN_CLASS)
-    }
-  }
-
-  handleClick(e) {
-    this.toggleMenu()
-    e.stopPropagation()
-  }
-
-  toggleMenu() {
-    const { visible } = this.state
-    this.setState({
-      visible: !visible,
-    })
-  }
-
-  render() {
-    const { visible } = this.state
-    return (
-      <StyledHeader>
-        <HeaderLeft>
-          <HeaderLogo />
-        </HeaderLeft>
-        <HeaderRight>
-          <HeaderLink to="/" aria-label="Back to Home">
-            Blog
-          </HeaderLink>
-          <HeaderLink to="/about" aria-label="About Page">
-            About
-          </HeaderLink>
-          <SlideButtonContainer handleClick={this.handleClick} />
-          <SlideContainer handleClick={this.handleClick} menuVisibility={visible} />
-        </HeaderRight>
-        <CategoryContainer>
-          <HeaderCategories />
-        </CategoryContainer>
-      </StyledHeader>
-    )
-  }
+  return (
+    <StyledHeader>
+      <HeaderLeft>
+        <HeaderLogo />
+      </HeaderLeft>
+      <HeaderRight>
+        <HeaderLink to="/" aria-label="Back to Home">
+          Blog
+        </HeaderLink>
+        <HeaderLink to="/about" aria-label="About Page">
+          About
+        </HeaderLink>
+        <div>
+          <SlideButtonContainer open={open} setOpen={setOpen} />
+          <SlideContainer open={open} setOpen={setOpen} />
+        </div>
+      </HeaderRight>
+      <CategoryContainer>
+        <HeaderCategories />
+      </CategoryContainer>
+    </StyledHeader>
+  )
 }
 
 export default Header

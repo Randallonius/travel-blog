@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { FiMapPin } from 'react-icons/fi'
 import PropTypes from 'prop-types'
@@ -23,19 +23,15 @@ const SlideButton = styled.div`
   }
 `
 
-class SlideButtonContainer extends Component {
-  render() {
-    const { handleClick } = this.props
-    return (
-      <SlideButton>
-        <FiMapPin onMouseUp={handleClick} />
-      </SlideButton>
-    )
-  }
-}
+const SlideButtonContainer = ({ open, setOpen }) => (
+  <SlideButton open={open} onClick={() => setOpen(!open)}>
+    <FiMapPin />
+  </SlideButton>
+)
 
 export default SlideButtonContainer
 
 SlideButtonContainer.propTypes = {
-  handleClick: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
 }
