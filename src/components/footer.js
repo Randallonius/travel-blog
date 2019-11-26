@@ -20,9 +20,9 @@ const FooterContainer = styled.div`
 
 const FooterContainerInner = styled.div`
   display: grid;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 40% 60%;
   text-align: center;
-  height: 200px;
+  height: 150px;
   width: 200px;
 `
 
@@ -46,12 +46,15 @@ const FooterCopyright = styled.div`
 `
 
 const SocialLink = styled.a`
-  font-size: 18px;
-  padding: 2px 7px 4px;
+  font-size: 1.2em;
   transition: all 0.25s ease-in-out;
   color: ${props => props.theme.colors.primary};
   border: 1px solid ${props => props.theme.colors.primary};
-  margin: 2px;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.4em;
+  display: inline-block;
+  box-sizing: content-box;
 
   &:hover {
     background-color: ${props => props.theme.colors.accentBlue};
@@ -66,7 +69,9 @@ class Footer extends Component {
       <StyledFooter>
         <FooterContainer>
           <FooterContainerInner>
-            <FooterTitle>Contact Us</FooterTitle>
+            <div>
+              <FooterTitle>Contact</FooterTitle>
+            </div>
             <div>
               <SocialLink href={`mailto:${website.email}`}>
                 <FiMail />
@@ -74,7 +79,9 @@ class Footer extends Component {
             </div>
           </FooterContainerInner>
           <FooterContainerInner>
-            <FooterTitle>Follow Us</FooterTitle>
+            <div>
+              <FooterTitle>Follow</FooterTitle>
+            </div>
             <div>
               <SocialLink href={`http://www.instagram.com/${website.instagram}`}>
                 <FiInstagram />
@@ -82,7 +89,9 @@ class Footer extends Component {
             </div>
           </FooterContainerInner>
           <FooterContainerInner>
-            <FooterTitle>FAQS</FooterTitle>
+            <div>
+              <FooterTitle>About</FooterTitle>
+            </div>
             <div>
               <FooterLink to="/about" aria-label="To About Page">
                 Who are we and what are we doing?
