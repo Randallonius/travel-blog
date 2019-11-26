@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import { FiX } from 'react-icons/fi'
 import PropTypes from 'prop-types'
 import MapContainer from '../map/mapContainer'
-import CurrentLocation from './currentLocation'
-import FutureLocation from './futureLocation'
+import SubTitle from '../subTitle'
 import Title from '../title'
 
 const Slide = styled.div`
@@ -16,41 +16,23 @@ const Slide = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
+  transition: transform 0.3s ease-in-out;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   z-index: 1000;
-
-  &.hide {
-    transform: translate3d(100vw, 0, 0);
-  }
-
-  &.show {
-    transform: translate3d(0vw, 0, 0);
-  }
+  transform: translateX(100%);
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
 
   @media screen and (min-width: ${props => props.theme.breakpoints.s}) {
     width: 80vw;
-
-    &.hide {
-      transform: translate3d(80vw, 0, 0);
-    }
   }
 
   @media screen and (min-width: ${props => props.theme.breakpoints.m}) {
     width: 60vw;
-
-    &.hide {
-      transform: translate3d(60vw, 0, 0);
-    }
   }
 
   @media screen and (min-width: ${props => props.theme.breakpoints.l}) {
     width: 40vw;
-
-    &.hide {
-      transform: translate3d(40vw, 0, 0);
-    }
   }
 `
 const CloseButton = styled.div`
@@ -67,37 +49,45 @@ const CloseButton = styled.div`
 
   &:hover {
     color: white;
-    background-color: ${props => props.theme.colors.greyDark};
+    background-color: ${props => props.theme.colors.accentBlue};
+    border-color: transparent;
   }
 `
 
-class SlideContainer extends Component {
-  render() {
-    let visibility = 'hide'
-    const { menuVisibility, handleClick } = this.props
-
-    if (menuVisibility) {
-      visibility = 'show'
+const SlideContainer = ({ open, setOpen }) => {
+  const data = useStaticQuery(graphql`
+    query locationQuery {
+      prismicHomepage {
+        data {
+          geolocation {
+            text
+          }
+          ondeck {
+            text
+          }
+        }
+      }
     }
-    return (
-      <Slide className={visibility}>
-        <CloseButton onClick={handleClick}>
-          <FiX />
-        </CloseButton>
-        <Title>Where are we currently?</Title>
-        <CurrentLocation />
-        <Title>Where have we been?</Title>
-        <MapContainer />
-        <Title>Where to next?</Title>
-        <FutureLocation />
-      </Slide>
-    )
-  }
+  `)
+
+  return (
+    <Slide open={open}>
+      <CloseButton onClick={() => setOpen(!open)}>
+        <FiX />
+      </CloseButton>
+      <Title>Where are we currently?</Title>
+      <SubTitle>{data.prismicHomepage.data.geolocation.text}</SubTitle>
+      <Title>On Deck</Title>
+      <SubTitle>{data.prismicHomepage.data.ondeck.text}</SubTitle>
+      <Title>Where have we been?</Title>
+      <MapContainer />
+    </Slide>
+  )
 }
 
 export default SlideContainer
 
 SlideContainer.propTypes = {
-  menuVisibility: PropTypes.bool.isRequired,
-  handleClick: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
 }

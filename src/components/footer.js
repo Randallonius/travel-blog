@@ -99,7 +99,9 @@ class Footer extends Component {
             </div>
           </FooterContainerInner>
         </FooterContainer>
-        <FooterCopyright>© {new Date().getFullYear()}, Built with love by Randallonius</FooterCopyright>
+        <FooterCopyright>
+          <small>© {new Date().getFullYear()}, Built with love by Randallonius</small>
+        </FooterCopyright>
       </StyledFooter>
     )
   }

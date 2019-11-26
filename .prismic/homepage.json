@@ -25,6 +25,22 @@
         "placeholder" : "Footer"
       }
     },
+    "geolocation" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "geolocation",
+        "placeholder" : "Where are you currently?"
+      }
+    },
+    "ondeck" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "On Deck",
+        "placeholder" : "Where are you going next?"
+      }
+    },
     "body" : {
       "type" : "Slices",
       "fieldset" : "Slice zone",
@@ -41,7 +57,7 @@
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
-                    "width" : 1200
+                    "width" : 5000
                   },
                   "thumbnails" : [ ],
                   "label" : "image"
