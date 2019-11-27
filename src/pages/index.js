@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import HeroImageContainer from '../components/hero/heroImageContainer'
 import Wrapper from '../components/wrapper'
 import Title from '../components/title'
-import PostList from '../components/postList/postList'
+import MasonryPosts from '../components/postList/masonryPosts'
 import InstagramList from '../components/instagram/instagramList'
 
 const IndexWrapper = Wrapper.withComponent('main')
@@ -23,7 +23,7 @@ class IndexPage extends Component {
         <HeroImageContainer data={homepage.data} />
         <IndexWrapper style={{ paddingTop: '3rem', paddingBottom: '2rem' }}>
           <Title>Recent Posts</Title>
-          <PostList posts={posts.edges} location={location} />
+          <MasonryPosts posts={posts.edges} location={location} />
           <Title>Instagram</Title>
           <InstagramList instagrams={instagrams.edges} />
         </IndexWrapper>
