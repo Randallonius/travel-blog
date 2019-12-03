@@ -68,7 +68,6 @@ const Layout = ({ children }) => {
           <Header siteTitle={data.site.siteMetadata.title} />
         </Headroom>
         <main>{children}</main>
-        <aside>This is the aside</aside>
         <Footer />
       </>
     </ThemeProvider>
@@ -76,7 +75,7 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
 }
 
 export default Layout

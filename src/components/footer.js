@@ -50,9 +50,9 @@ const SocialLink = styled.a`
   transition: all 0.25s ease-in-out;
   color: ${props => props.theme.colors.primary};
   border: 1px solid ${props => props.theme.colors.primary};
-  width: 1.5em;
-  height: 1.5em;
-  line-height: 1.4em;
+  width: 2em;
+  height: 2em;
+  line-height: 1.9em;
   display: inline-block;
   box-sizing: content-box;
 
