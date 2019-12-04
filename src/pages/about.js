@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import Layout from '../components/layout'
-import HeroImageContainer from '../components/hero/heroImageContainer'
+import { HeroImageContainer } from '../components/hero'
 import SEO from '../components/seo'
 import Title from '../components/title'
 

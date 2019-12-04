@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import HeroImage from '../hero/heroImage'
+import { HeroImage } from '../hero'
 
 const ListingImageContainer = styled.div`
   position: relative;
