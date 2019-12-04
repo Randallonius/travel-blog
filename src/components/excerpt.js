@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ExcerptSlice from '../slices'
+import ExcerptSlice from '../slices/excerptSlice'
 
 class Excerpt extends Component {
   render() {
