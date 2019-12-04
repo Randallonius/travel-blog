@@ -1,6 +1,6 @@
 import BodyText from './bodyText'
 import Image from './image'
-import Excerpt from './excerptSlice'
+import ExcerptSlice from './excerptSlice'
 import Hero from './hero'
 
-export { Image, BodyText, Hero, Excerpt }
+export { Image, BodyText, Hero, ExcerptSlice }
