@@ -34,6 +34,10 @@ const HeroInnerImage = styled.div`
 const AboutContent = styled.div`
   text-align: center;
   margin-bottom: 1rem;
+  padding-top: 20px;
+  @media (min-width: ${props => props.theme.breakpoints.m}) {
+    padding-top: 40px;
+  }
 `
 
 const AuthorContainer = styled.div`
