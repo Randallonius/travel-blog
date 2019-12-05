@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import HeroImage from './heroImage'
+import HeroImage from './HeroImage'
 
 const Hero = styled.div`
   position: relative;

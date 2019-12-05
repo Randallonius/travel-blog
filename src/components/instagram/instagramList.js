@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import InstagramItem from './instagramItem'
+import InstagramItem from './InstagramItem'
 
 const InstaList = styled.div`
   display: flex;

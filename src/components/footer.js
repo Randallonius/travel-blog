@@ -9,6 +9,7 @@ const StyledFooter = styled.footer`
   margin: 6rem auto 0 auto;
   border-top: 1px solid ${props => props.theme.colors.accentBlue};
 `
+
 const FooterContainer = styled.div`
   display: flex;
   padding: 3% 4% 0% 4%;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import PostListImage from './postListImage'
-import PostListText from './postListText'
+import PostListImage from './PostListImage'
+import PostListText from './PostListText'
 
 const Item = styled.div`
   padding-bottom: 15px;

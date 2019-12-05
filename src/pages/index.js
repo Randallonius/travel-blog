@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import HeroImageContainer from '../components/hero/heroImageContainer'
-import Wrapper from '../components/wrapper'
-import Title from '../components/title'
-import MasonryPosts from '../components/postList/masonryPosts'
-import InstagramList from '../components/instagram/instagramList'
+import { HeroImageContainer } from '../components/hero'
+import { Layout, SEO, Title, Wrapper } from '../components'
+import MasonryPosts from '../components/postList/MasonryPosts'
+import { InstagramList } from '../components/instagram'
 
 const IndexWrapper = Wrapper.withComponent('main')
 

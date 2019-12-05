@@ -3,9 +3,9 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import { FiX } from 'react-icons/fi'
 import PropTypes from 'prop-types'
-import MapContainer from '../map/mapContainer'
-import SubTitle from '../subTitle'
-import Title from '../title'
+import MapContainer from '../map/MapContainer'
+import SubTitle from '../SubTitle'
+import Title from '../Title'
 
 const Slide = styled.div`
   width: 100vw;
