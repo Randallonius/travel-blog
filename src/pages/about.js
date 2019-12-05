@@ -3,10 +3,8 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
-import Layout from '../components/layout'
 import { HeroImageContainer } from '../components/hero'
-import SEO from '../components/seo'
-import Title from '../components/title'
+import { Layout, SEO, Title } from '../components'
 
 const AboutPageWrapper = styled.div`
   width: 100%;

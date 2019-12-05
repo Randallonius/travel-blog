@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import SlideContainer from '../slide/slideContainer'
-import SlideButtonContainer from '../slide/slideButtonContainer'
+import { SlideButtonContainer, SlideContainer } from '../slide'
 import HeaderCategories from './HeaderCategories'
 import HeaderLogo from './HeaderLogo'
 

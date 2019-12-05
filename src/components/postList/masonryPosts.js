@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import Masonry from 'react-masonry-component'
-import PostItem from './postItem'
+import PostItem from './PostItem'
 
 const List = styled.div`
   margin-bottom: 4rem;

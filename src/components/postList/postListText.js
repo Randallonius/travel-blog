@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import kebabCase from 'lodash/kebabCase'
-import Excerpt from '../excerpt'
-import PostListCategories from './postListCategories'
+import Excerpt from '../Excerpt'
+import PostListCategories from './PostListCategories'
 
 const ListingText = styled.div`
   background-color: ${props => props.theme.colors.white};

@@ -1,6 +1,6 @@
-import BodyText from './bodyText'
-import Image from './image'
-import ExcerptSlice from './excerptSlice'
-import Hero from './hero'
+import BodyText from './BodyText'
+import Image from './Image'
+import ExcerptSlice from './ExcerptSlice'
+import Hero from './Hero'
 
 export { Image, BodyText, Hero, ExcerptSlice }

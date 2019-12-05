@@ -2,15 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import { Layout, SEO, Wrapper, SliceZone, SubTitle, TagLink } from '../components'
 import website from '../../config/website'
-import Wrapper from '../components/wrapper'
 import { HeroImage } from '../components/hero'
-import PostListCategories from '../components/postList/postListCategories'
-import SliceZone from '../components/sliceZone'
-import SubTitle from '../components/subTitle'
-import TagLink from '../components/tagLink'
+import PostListCategories from '../components/postList/PostListCategories'
 
 const PostWrapper = Wrapper.withComponent('main')
 

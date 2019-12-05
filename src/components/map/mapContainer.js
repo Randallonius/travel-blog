@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import LeafletMap from './map'
+import LeafletMap from './Map'
 
 const MapContainer = () => {
   const data = useStaticQuery(graphql`
