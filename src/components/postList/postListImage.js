@@ -48,7 +48,7 @@ const PostListImage = props => {
   return (
     <>
       <ListingImageContainer>
-        <Link to={node.uid}>
+        <Link to={`/${node.uid}`}>
           <HeroImage data={node.data.body} />
           <ListingImageText className="image-text">
             <span>read more</span>

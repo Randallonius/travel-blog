@@ -7,7 +7,7 @@ const CategoryLink = styled(Link) `
   font-size: 1rem;
 
   @media (min-width: ${props => props.theme.breakpoints.s}) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `
 
