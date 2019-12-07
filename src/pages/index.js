@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { HeroImageContainer } from '../components/hero'
 import { Layout, SEO, Title, Wrapper } from '../components'
-import MasonryPosts from '../components/postList/masonryPosts'
+import MasonryPosts from '../components/postList'
 import { InstagramList } from '../components/instagram'
 
 const IndexWrapper = Wrapper.withComponent('main')

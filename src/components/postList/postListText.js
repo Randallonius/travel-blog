@@ -3,7 +3,7 @@ import PropTypes, { oneOfType } from 'prop-types'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import kebabCase from 'lodash/kebabCase'
-import Excerpt from '../excerpt'
+import Excerpt from '../Excerpt'
 import PostListCategories from './PostListCategories'
 
 const ListingText = styled.div`
