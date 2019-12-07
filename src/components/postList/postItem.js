@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { oneOfType } from 'prop-types'
 import styled from '@emotion/styled'
 import PostListImage from './PostListImage'
 import PostListText from './PostListText'
@@ -51,7 +51,7 @@ export default PostItem
 
 PostItem.propTypes = {
   node: PropTypes.object.isRequired,
-  categories: PropTypes.array.isRequired,
+  categories: oneOfType([PropTypes.array, PropTypes.bool]).isRequired,
   location: PropTypes.object.isRequired,
-  author: PropTypes.string.isRequired,
+  author: PropTypes.array.isRequired,
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { oneOfType } from 'prop-types'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import kebabCase from 'lodash/kebabCase'
@@ -74,7 +74,7 @@ const PostListText = props => {
     <ListingText>
       <ListingTextInner>
         <ListingTitle>
-          <StyledLink to={node.uid}>{node.data.title.text}</StyledLink>
+          <StyledLink to={`/${node.uid}`}>{node.data.title.text}</StyledLink>
         </ListingTitle>
         {categories && (
           <CategoryContainer>
@@ -98,8 +98,8 @@ const PostListText = props => {
 
 PostListText.propTypes = {
   node: PropTypes.object.isRequired,
-  author: PropTypes.string.isRequired,
-  categories: PropTypes.array.isRequired,
+  author: PropTypes.array.isRequired,
+  categories: oneOfType([PropTypes.array, PropTypes.bool]).isRequired,
 }
 
 export default PostListText
