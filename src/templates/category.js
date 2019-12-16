@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Title, SEO } from '../components'
+import { Aside, Layout, Title, SEO } from '../components'
 import website from '../../config/website'
 import { MasonryPosts } from '../components/postList'
 import { TemplateContainer, TemplateContent, Wrapper } from './TemplateStyle'
@@ -21,11 +21,12 @@ const Category = ({
       <TemplateContainer>
         <TemplateContent>
           <Title>
-            {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} tagged with "
+            {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} categorized with "
             {category}"
           </Title>
           <MasonryPosts posts={edges} location={location} />
         </TemplateContent>
+        <Aside />
       </TemplateContainer>
     </TagWrapper>
   </Layout>
