@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import styled from '@emotion/styled'
+import kebabCase from 'lodash/kebabCase'
 import { Layout, SEO, Wrapper, SliceZone, SubTitle, TagLink } from '../components'
 import website from '../../config/website'
 import { HeroImage } from '../components/hero'
@@ -93,7 +94,10 @@ const Post = ({ data: { prismicPost }, location }) => {
             <PostWrapperMainContent>
               <Headline>
                 <span>{data.date}</span> {categories && <span>/</span>}{' '}
-                {categories && <PostListCategories categories={categories} />} <span>/</span> <span>By {author}</span>
+                {categories && <PostListCategories categories={categories} />} <span>/</span> 
+                <span>
+                  By <Link to={`/authors/${kebabCase(author)}`}>{author}</Link>
+                </span>
               </Headline>
               <SubTitle>{data.title.text}</SubTitle>
               <SliceZone allSlices={data.body} />

@@ -87,7 +87,7 @@ const PostListText = props => {
         </div>
         <ListingInfo>
           <span>
-            By <Link to={`/author/${kebabCase(author)}`}>{author}</Link>
+            By <Link to={`/authors/${kebabCase(author)}`}>{author}</Link>
           </span>
           <span>{node.data.date}</span>
         </ListingInfo>
