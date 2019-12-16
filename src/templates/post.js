@@ -3,24 +3,13 @@ import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import styled from '@emotion/styled'
 import kebabCase from 'lodash/kebabCase'
-import { Layout, SEO, Wrapper, SliceZone, SubTitle, TagLink } from '../components'
+import { Aside, Layout, SEO, SliceZone, SubTitle, TagLink } from '../components'
 import website from '../../config/website'
 import { HeroImage } from '../components/hero'
 import PostListCategories from '../components/postList/PostListCategories'
+import { TemplateContainer, TemplateContent, Wrapper } from './TemplateStyle'
 
 const PostWrapper = Wrapper.withComponent('main')
-
-const PostWrapperContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-const PostWrapperContainerInner = styled.div`
-  width: 100%;
-  @media (min-width: ${props => props.theme.breakpoints.m}) {
-    width: 70%;
-  }
-`
 
 const PostWrapperMainContent = styled.div`
   padding: 0 2rem 2rem 2rem;
@@ -88,8 +77,8 @@ const Post = ({ data: { prismicPost }, location }) => {
         article
       />
       <PostWrapper>
-        <PostWrapperContainer>
-          <PostWrapperContainerInner>
+        <TemplateContainer>
+          <TemplateContent>
             <HeroImage data={data.body} />
             <PostWrapperMainContent>
               <Headline>
@@ -107,8 +96,9 @@ const Post = ({ data: { prismicPost }, location }) => {
                 <h5>Tags:</h5> <TagLink tags={tags} />
               </PostTags>
             )}
-          </PostWrapperContainerInner>
-        </PostWrapperContainer>
+          </TemplateContent>
+          <Aside />
+        </TemplateContainer>
       </PostWrapper>
     </Layout>
   )
