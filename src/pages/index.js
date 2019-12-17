@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { HeroImageContainer } from '../components/hero'
 import { Layout, SEO, Title, Wrapper } from '../components'
 import { MasonryPosts } from '../components/postList'
 import { InstagramList } from '../components/instagram'
+import HomepageHeroContainer from '../components/hero/HomepageHeroContainer'
 
 const IndexWrapper = Wrapper.withComponent('main')
 
 class IndexPage extends Component {
   render() {
     const {
-      data: { homepage, posts, instagrams },
+      data: { posts, instagrams },
       location,
     } = this.props
     return (
       <Layout>
         <SEO title="Home" />
-        <HeroImageContainer data={homepage.data} />
+        <HomepageHeroContainer />
         <IndexWrapper style={{ paddingTop: '3rem', paddingBottom: '2rem' }}>
           <Title>Recent Posts</Title>
           <MasonryPosts posts={posts.edges} location={location} />
@@ -33,7 +33,6 @@ export default IndexPage
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    homepage: PropTypes.object.isRequired,
     posts: PropTypes.object.isRequired,
     instagrams: PropTypes.object.isRequired,
   }).isRequired,
@@ -42,33 +41,6 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    homepage: prismicHomepage {
-      data {
-        title {
-          text
-        }
-        content {
-          html
-        }
-        body {
-          ... on PrismicHomepageBodyHeroImage {
-            slice_type
-            id
-            primary {
-              image {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1600) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     posts: allPrismicPost(sort: { fields: [data___date], order: DESC }) {
       edges {
         node {

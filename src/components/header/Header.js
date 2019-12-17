@@ -19,6 +19,10 @@ const StyledHeader = styled.nav`
     justify-content: space-between;
   }
 
+  @media (min-width: ${props => props.theme.breakpoints.m}) {
+    border-bottom: none;
+  }
+
   a {
     color: ${props => props.theme.colors.greyDark};
     font-weight: 400;
