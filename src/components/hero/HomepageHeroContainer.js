@@ -1,34 +1,30 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-import styled from '@emotion/styled'
+import { useStaticQuery, graphql } from 'gatsby'
 import './HomepageHero.css'
-
 import BackgroundImage from 'gatsby-background-image'
+import HeroTitle from './HomepageHeroTitle'
 
-// eslint-disable-next-line react/prop-types
-const HomepageHeroContainer = () => (
-  <StaticQuery
-    query={graphql`
-      query heroQuery {
-        homepage: prismicHomepage {
-          data {
-            title {
-              text
-            }
-            content {
-              html
-            }
-            body {
-              ... on PrismicHomepageBodyHeroImage {
-                slice_type
-                id
-                primary {
-                  image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 1600) {
-                          ...GatsbyImageSharpFluid
-                        }
+const HomepageHeroContainer = () => {
+  const data = useStaticQuery(graphql`
+    query heroQuery {
+      homepage: prismicHomepage {
+        data {
+          title {
+            text
+          }
+          content {
+            html
+          }
+          body {
+            ... on PrismicHomepageBodyHeroImage {
+              slice_type
+              id
+              primary {
+                image {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 1600) {
+                        ...GatsbyImageSharpFluid
                       }
                     }
                   }
@@ -38,19 +34,14 @@ const HomepageHeroContainer = () => (
           }
         }
       }
-    `}
-    render={data => {
-      // Set ImageData.
-      const imageData = data.homepage.data.body.map(s => s.primary.image.localFile.childImageSharp.fluid)
-      return (
-        <BackgroundImage Tag="section" className="bg" fluid={imageData} backgroundColor="#040e18">
-          <div>
-            <span>Travel Blog</span>
-          </div>
-        </BackgroundImage>
-      )
-    }}
-  />
-)
+    }
+  `)
+  const imageData = data.homepage.data.body.map(s => s.primary.image.localFile.childImageSharp.fluid)
+  return (
+    <BackgroundImage Tag="section" className="bg" fluid={imageData} backgroundColor="#040e18">
+      <HeroTitle />
+    </BackgroundImage>
+  )
+}
 
 export default HomepageHeroContainer
