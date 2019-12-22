@@ -1,8 +1,14 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import styled from '@emotion/styled'
 import './HomepageHero.css'
 import BackgroundImage from 'gatsby-background-image'
 import HeroTitle from './HomepageHeroTitle'
+
+const HeroContainer = styled.div`
+  width: 100%;
+  background-color: white;
+`
 
 const HomepageHeroContainer = () => {
   const data = useStaticQuery(graphql`
@@ -23,7 +29,7 @@ const HomepageHeroContainer = () => {
                 image {
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 1600) {
+                      fluid(maxWidth: 1600, quality: 100) {
                         ...GatsbyImageSharpFluid
                       }
                     }
@@ -36,11 +42,15 @@ const HomepageHeroContainer = () => {
       }
     }
   `)
-  const imageData = data.homepage.data.body.map(s => s.primary.image.localFile.childImageSharp.fluid)
+  const imageData = data.homepage.data.body.map(
+    s => s.slice_type === 'hero_image' && s.primary.image.localFile.childImageSharp.fluid
+  )
   return (
-    <BackgroundImage Tag="section" className="bg" fluid={imageData} backgroundColor="#040e18">
-      <HeroTitle />
-    </BackgroundImage>
+    <HeroContainer>
+      <BackgroundImage Tag="section" className="bg" fluid={imageData}>
+        <HeroTitle />
+      </BackgroundImage>
+    </HeroContainer>
   )
 }
 

@@ -1,9 +1,12 @@
 
+/****
+CSS file is created due to media query issues regarding the background-image package
+****/
+
 .bg {
-  width: 100%;
-  height: 50vh;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .bg,
@@ -12,9 +15,21 @@
   background-attachment: scroll;
 }
 
+@media only screen and (min-width: 400px) {
+  .bg {
+    height: 50vh;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .bg {
+    height: 60vh;
+  }
+}
+
 @media only screen and (min-width: 900px) {
   .bg {
-    height: 100vh;
+    height: 80vh;
   }
   .bg,
   .bg::before,
@@ -23,19 +38,8 @@
   }
 }
 
-.bg div {
-  position: absolute;
-  left: 0;
-  top: 35%;
-  width: 100%;
-  text-align: center;
-  color: #000;
-}
-
-.bg span {
-  background-color: #111;
-  color: #fff;
-  padding: 1.2rem;
-  font-size: 2rem;
-  letter-spacing: .8rem;
+@media only screen and (min-width: 1300px) {
+  .bg {
+    height: 100vh;
+  }
 }
