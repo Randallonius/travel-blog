@@ -12,7 +12,6 @@ const StyledHeader = styled.nav`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  border-bottom: 1px solid ${props => props.theme.colors.accentBlue};
 
   @media (min-width: ${props => props.theme.breakpoints.s}) {
     flex-direction: row;

@@ -3,7 +3,7 @@ import { graphql, StaticQuery, Link } from 'gatsby'
 import styled from '@emotion/styled'
 import kebabCase from 'lodash/kebabCase'
 
-const CategoryLink = styled(Link) `
+const CategoryLink = styled(Link)`
   font-size: 1rem;
 
   @media (min-width: ${props => props.theme.breakpoints.s}) {
@@ -24,12 +24,12 @@ const HeaderCategories = () => (
     query={categoryQuery}
     render={({ allPrismicCategory }) =>
       allPrismicCategory.edges.map(({ node }, i) => (
-        <>
+        <React.Fragment key={node.id}>
           {!!i && <Circle />}
           <CategoryLink key={node.data.name} to={`/categories/${kebabCase(node.data.name)}`}>
             {node.data.name}
           </CategoryLink>
-        </>
+        </React.Fragment>
       ))
     }
   />
@@ -45,6 +45,7 @@ export const categoryQuery = graphql`
           data {
             name
           }
+          id
         }
       }
     }

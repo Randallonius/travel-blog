@@ -1,0 +1,45 @@
+
+/****
+CSS file is created due to media query issues regarding the background-image package
+****/
+
+.bg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bg,
+.bg::before,
+.bg::after {
+  background-attachment: scroll;
+}
+
+@media only screen and (min-width: 400px) {
+  .bg {
+    height: 50vh;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .bg {
+    height: 60vh;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .bg {
+    height: 80vh;
+  }
+  .bg,
+  .bg::before,
+  .bg::after {
+    background-attachment: fixed;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .bg {
+    height: 100vh;
+  }
+}
