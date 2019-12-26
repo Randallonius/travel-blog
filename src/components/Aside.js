@@ -31,7 +31,7 @@ const AsideTitle = styled.div`
 
 const StyledLink = styled(Link)`
   display: block;
-  font-size: 14px;
+  font-size: 0.9rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   color: ${props => props.theme.colors.black};
