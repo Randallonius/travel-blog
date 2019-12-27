@@ -113,13 +113,6 @@ const reset = css`
   ul {
     padding: 0;
   }
-
-  #disqus_thread {
-    border: 1px solid black;
-    margin: 0;
-    width: 100%;
-    padding: 20px;
-  }
 `
 
 export default reset

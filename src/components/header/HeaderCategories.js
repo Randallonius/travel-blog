@@ -5,9 +5,25 @@ import kebabCase from 'lodash/kebabCase'
 
 const CategoryLink = styled(Link)`
   font-size: 1rem;
+  padding: 0 0.625rem;
 
-  @media (min-width: ${props => props.theme.breakpoints.s}) {
+  @media (min-width: ${props => props.theme.breakpoints.m}) {
     font-size: 1.2rem;
+  }
+
+  :after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: ${props => props.theme.colors.accentBlue};
+    transition: width 0.25s;
+    position: relative;
+    top: 5px;
+  }
+
+  :hover::after {
+    width: 100%;
   }
 `
 
