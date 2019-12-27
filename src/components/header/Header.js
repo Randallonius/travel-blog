@@ -93,7 +93,7 @@ function Header() {
         <HeaderLogo />
       </HeaderLeft>
       <HeaderRight>
-        <HeaderLink to="/" aria-label="Back to Home">
+        <HeaderLink to="/blog" aria-label="Back to Home">
           Blog
         </HeaderLink>
         <HeaderLink to="/about" aria-label="About Page">

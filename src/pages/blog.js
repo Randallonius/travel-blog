@@ -15,7 +15,7 @@ class BlogPage extends Component {
     return (
       <Layout>
         <SEO title="Blog" pathname={location.pathname} />
-        <PostPage title="Blog Posts" posts={edges} location={location} />
+        <PostPage topic="Blog Posts" posts={edges} location={location} />
       </Layout>
     )
   }
@@ -27,7 +27,6 @@ BlogPage.propTypes = {
   data: PropTypes.shape({
     blogPosts: PropTypes.shape({
       edges: PropTypes.array.isRequired,
-      totalCount: PropTypes.number.isRequired,
     }).isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,
