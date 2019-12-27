@@ -22,7 +22,7 @@ const AsideTitle = styled.div`
     color: ${props => props.theme.colors.white};
     padding: 1rem;
   }
-  :first-child {
+  :first-of-type {
     h4 {
       margin-top: 0;
     }

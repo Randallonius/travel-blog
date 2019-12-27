@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Aside, Layout, Title, SEO } from '../components'
+import { Layout, SEO } from '../components'
 import website from '../../config/website'
-import { MasonryPosts } from '../components/postList'
-import { TemplateContainer, TemplateContent, Wrapper } from './TemplateStyle'
-
-const TagWrapper = Wrapper.withComponent('main')
+import PostPage from './Postpage'
 
 const Author = ({
   pageContext: { author },
@@ -17,17 +14,7 @@ const Author = ({
 }) => (
   <Layout>
     <SEO title={`Author: ${author} | ${website.titleAlt}`} pathname={location.pathname} />
-    <TagWrapper>
-      <TemplateContainer>
-        <TemplateContent>
-          <Title>
-            {totalCount === 1 ? 'Post' : 'Posts'} written by {author}
-          </Title>
-          <MasonryPosts posts={edges} location={location} />
-        </TemplateContent>
-        <Aside />
-      </TemplateContainer>
-    </TagWrapper>
+    <PostPage location={location} topic={author} totalCount={totalCount} posts={edges} />
   </Layout>
 )
 
