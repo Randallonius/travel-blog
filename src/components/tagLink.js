@@ -10,7 +10,7 @@ const StyledTagLink = styled(Link)`
   height: 32px;
   line-height: 32px;
   letter-spacing: 1px;
-  margin: 0 7px 5px 0;
+  margin: 0.5em 0.6em;
   border: 1px solid black;
   display: inline-block;
   text-transform: uppercase;

@@ -8,7 +8,7 @@ import HeaderLogo from './HeaderLogo'
 const StyledHeader = styled.nav`
   background-color: ${props => props.theme.colors.white};
   display: flex;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2rem;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
@@ -16,6 +16,7 @@ const StyledHeader = styled.nav`
   @media (min-width: ${props => props.theme.breakpoints.s}) {
     flex-direction: row;
     justify-content: space-between;
+    padding: 1.5rem 3rem;
   }
 
   a {
