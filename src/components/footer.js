@@ -12,7 +12,7 @@ const StyledFooter = styled.footer`
 
 const FooterContainer = styled.div`
   display: flex;
-  padding: 3% 4% 0% 4%;
+  padding: 3% 4%;
   background: ${props => props.theme.colors.white};
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -21,10 +21,15 @@ const FooterContainer = styled.div`
 
 const FooterContainerInner = styled.div`
   display: grid;
-  grid-template-rows: 40% 60%;
+  grid-template-rows: 50% 50%;
   text-align: center;
-  height: 150px;
+  height: 100px;
   width: 200px;
+
+  @media (min-width: ${props => props.theme.breakpoints.m}) {
+    grid-template-rows: 40% 60%;
+    height: 150px;
+  }
 `
 
 const FooterTitle = styled.h4`

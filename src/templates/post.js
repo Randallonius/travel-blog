@@ -23,6 +23,11 @@ const PostWrapperMainContent = styled.div`
 const Headline = styled.div`
   color: ${props => props.theme.colors.grey};
   padding-top: 1.45rem;
+  text-align: center;
+
+  @media (min-width: ${props => props.theme.breakpoints.s}) {
+    text-align: left;
+  }
 
   @media (min-width: ${props => props.theme.breakpoints.l}) {
     font-size: 1.25rem;
@@ -36,6 +41,26 @@ const Headline = styled.div`
   span,
   a {
     margin-right: 5px;
+  }
+
+  .info {
+    display: block;
+    @media (min-width: ${props => props.theme.breakpoints.s}) {
+      display: inline-block;
+    }
+  }
+
+  .divider {
+    @media (max-width: ${props => props.theme.breakpoints.s}) {
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+    }
   }
 `
 
@@ -82,9 +107,9 @@ const Post = ({ data: { prismicPost }, location }) => {
             <HeroImage data={data.body} />
             <PostWrapperMainContent>
               <Headline>
-                <span>{data.date}</span> {categories && <span>/</span>}{' '}
-                {categories && <PostListCategories categories={categories} />} <span>/</span> 
-                <span>
+                <span className="info">{data.date}</span> {categories && <span className="divider">/</span>}{' '}
+                {categories && <PostListCategories categories={categories} />} <span className="divider">/</span>
+                <span className="info">
                   By <Link to={`/authors/${kebabCase(author)}`}>{author}</Link>
                 </span>
               </Headline>

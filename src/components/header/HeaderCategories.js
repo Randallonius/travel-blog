@@ -4,8 +4,12 @@ import styled from '@emotion/styled'
 import kebabCase from 'lodash/kebabCase'
 
 const CategoryLink = styled(Link)`
-  font-size: 1rem;
-  padding: 0 0.625rem;
+  font-size: 0.8rem;
+
+  @media (min-width: ${props => props.theme.breakpoints.s}) {
+    padding: 0 0.625rem;
+    font-size: 1.2rem;
+  }
 
   @media (min-width: ${props => props.theme.breakpoints.m}) {
     font-size: 1.2rem;

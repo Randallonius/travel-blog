@@ -7,6 +7,7 @@ CSS file is created due to media query issues regarding the background-image pac
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  height: 40vh;
 }
 
 .bg,
