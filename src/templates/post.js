@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
+import Disqus from 'gatsby-plugin-disqus'
 import styled from '@emotion/styled'
 import kebabCase from 'lodash/kebabCase'
 import { Aside, Layout, SEO, SliceZone, SubTitle, TagLink } from '../components'
@@ -92,6 +93,12 @@ const Post = ({ data: { prismicPost }, location }) => {
   if (data.tags[0].tag) {
     tags = data.tags.map(t => t.tag.document[0].data.name)
   }
+  const disqusConfig = {
+    url: `${website.url}${location.pathname}`,
+    identifier: prismicPost.uid,
+    title: data.title.text,
+  }
+
   return (
     <Layout customSEO>
       <SEO
@@ -121,6 +128,7 @@ const Post = ({ data: { prismicPost }, location }) => {
                 <h5>Tags:</h5> <TagLink tags={tags} />
               </PostTags>
             )}
+            <Disqus config={disqusConfig} />
           </TemplateContent>
           <Aside />
         </TemplateContainer>
