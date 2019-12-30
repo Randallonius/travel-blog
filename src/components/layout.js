@@ -43,6 +43,12 @@ const globalStyle = css`
     font-size: 1em;
     line-height: 1.5em;
   }
+  #disqus_thread {
+    border: 1px solid black;
+    margin: 0;
+    width: 100%;
+    padding: 20px;
+  }
   .body--slide-open {
     overflow: hidden;
     height: 100%;
