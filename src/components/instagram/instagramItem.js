@@ -75,7 +75,7 @@ export default class InstagramItem extends Component {
     return (
       <ItemContainer>
         <Item href={`http://www.instagram.com/${website.instagram}/p/${node.id}`}>
-          <Img fluid={node.localFile.childImageSharp.fluid} alt="Instagram Image"/>
+          <Img fluid={node.localFile.childImageSharp.fluid} alt="Instagram Image" />
           <Likes className="insta-likes">
             <span>{node.likes}</span>
             <span>

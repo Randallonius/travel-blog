@@ -15,22 +15,17 @@ const HomepageHeroContainer = () => {
     query heroQuery {
       homepage: prismicHomepage {
         data {
-          title {
-            text
-          }
-          content {
-            html
-          }
           body {
             ... on PrismicHomepageBodyHeroImage {
               slice_type
               id
               primary {
                 image {
+                  alt
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 1600, quality: 100) {
-                        ...GatsbyImageSharpFluid
+                        ...GatsbyImageSharpFluid_withWebp
                       }
                     }
                   }
@@ -42,16 +37,14 @@ const HomepageHeroContainer = () => {
       }
     }
   `)
-  const imageData = data.homepage.data.body.map(
-    s => s.slice_type === 'hero_image' && s.primary.image.localFile.childImageSharp.fluid
-  )
-  return (
-    <HeroContainer>
-      <BackgroundImage Tag="section" className="bg" fluid={imageData}>
+  const imageData = data.homepage.data.body.map(s =>
+    s.slice_type && s.slice_type === 'hero_image' ? (
+      <BackgroundImage Tag="section" className="bg" key={s.id} fluid={s.primary.image.localFile.childImageSharp.fluid}>
         <HeroTitle />
       </BackgroundImage>
-    </HeroContainer>
+    ) : null
   )
+  return <HeroContainer>{imageData}</HeroContainer>
 }
 
 export default HomepageHeroContainer
