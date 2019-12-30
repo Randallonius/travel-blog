@@ -80,7 +80,7 @@ const Aside = () => {
     }
   `)
   const PostList = data.asidePosts.edges.map(edge => (
-    <StyledLink key={edge.node.uid} to={edge.node.uid}>
+    <StyledLink key={edge.node.uid} to={`/${edge.node.uid}`}>
       {edge.node.data.title.text}
     </StyledLink>
   ))
