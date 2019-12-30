@@ -88,12 +88,10 @@ const HeroTitle = () => {
   `)
 
   const TitleImage = data.homepage.data.body.map(s =>
-    (s.slice_type && s.slice_type === 'title_image'
-      ? 
-      <Img key={s.id} fluid={s.primary.image.localFile.childImageSharp.fluid} /> 
-      : 
-      null
-    ))
+    s.slice_type && s.slice_type === 'title_image' ? (
+      <Img key={s.id} fluid={s.primary.image.localFile.childImageSharp.fluid} />
+    ) : null
+  )
 
   const style = {
     opacity: boxBackground ? 0 : 1,
