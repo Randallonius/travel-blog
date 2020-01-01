@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import PropTypes from 'prop-types'
-import '../../styles/map.css'
 
 type Position = [number, number]
 
