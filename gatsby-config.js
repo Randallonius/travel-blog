@@ -1,11 +1,25 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+
+const website = require('./config/website')
+
+const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
+
 module.exports = {
   siteMetadata: {
-    title: `Travel Blog Starter`,
-    description: `A Travel Blog setup integrating Prismic.io CMS and Netlify`,
-    author: `@randallonius`,
+    siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
+    pathPrefix,
+    title: website.title,
+    titleAlt: website.titleAlt,
+    description: website.description,
+    banner: website.logo,
+    headline: website.headline,
+    siteLanguage: website.siteLanguage,
+    ogLanguage: website.ogLanguage,
+    author: website.author,
+    twitter: website.twitter,
+    facebook: website.facebook,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -79,43 +79,6 @@ const CategoryContainer = styled.div`
 
 const SLIDE_OPEN_CLASS = 'body--slide-open'
 
-// class Header extends Component {
-//   const [open, setOpen] = useState(false)
-
-//   componentDidMount() {
-//     if (open) {
-//       document.body.classList.add(SLIDE_OPEN_CLASS)
-//     } else {
-//       document.body.classList.remove(SLIDE_OPEN_CLASS)
-//     }
-//   }
-
-//   render() {
-//     return (
-//       <StyledHeader>
-//         <HeaderLeft>
-//           <HeaderLogo />
-//         </HeaderLeft>
-//         <HeaderRight>
-//           <HeaderLink to="/blog" aria-label="Back to Home">
-//             Blog
-//           </HeaderLink>
-//           <HeaderLink to="/about" aria-label="About Page">
-//             About
-//           </HeaderLink>
-//           <div>
-//             <SlideButtonContainer open={open} setOpen={setOpen} />
-//             <SlideContainer open={open} setOpen={setOpen} />
-//           </div>
-//         </HeaderRight>
-//         <CategoryContainer>
-//           <HeaderCategories />
-//         </CategoryContainer>
-//       </StyledHeader>
-//     )
-//   }
-// }
-
 const Header = () => {
   const [open, setOpen] = useState(false)
 
