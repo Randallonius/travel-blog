@@ -35,6 +35,7 @@ module.exports = {
     'gatsby-plugin-emotion',
     `gatsby-plugin-flow`,
     `gatsby-plugin-react-leaflet`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
