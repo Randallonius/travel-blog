@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { SlideButtonContainer, SlideContainer } from '../slide'
@@ -79,14 +79,54 @@ const CategoryContainer = styled.div`
 
 const SLIDE_OPEN_CLASS = 'body--slide-open'
 
-function Header() {
+// class Header extends Component {
+//   const [open, setOpen] = useState(false)
+
+//   componentDidMount() {
+//     if (open) {
+//       document.body.classList.add(SLIDE_OPEN_CLASS)
+//     } else {
+//       document.body.classList.remove(SLIDE_OPEN_CLASS)
+//     }
+//   }
+
+//   render() {
+//     return (
+//       <StyledHeader>
+//         <HeaderLeft>
+//           <HeaderLogo />
+//         </HeaderLeft>
+//         <HeaderRight>
+//           <HeaderLink to="/blog" aria-label="Back to Home">
+//             Blog
+//           </HeaderLink>
+//           <HeaderLink to="/about" aria-label="About Page">
+//             About
+//           </HeaderLink>
+//           <div>
+//             <SlideButtonContainer open={open} setOpen={setOpen} />
+//             <SlideContainer open={open} setOpen={setOpen} />
+//           </div>
+//         </HeaderRight>
+//         <CategoryContainer>
+//           <HeaderCategories />
+//         </CategoryContainer>
+//       </StyledHeader>
+//     )
+//   }
+// }
+
+const Header = () => {
   const [open, setOpen] = useState(false)
 
-  if (open) {
-    document.body.classList.add(SLIDE_OPEN_CLASS)
-  } else {
-    document.body.classList.remove(SLIDE_OPEN_CLASS)
-  }
+  useEffect(() => {
+    // Update the document title using the browser API
+    if (open) {
+      document.body.classList.add(SLIDE_OPEN_CLASS)
+    } else {
+      document.body.classList.remove(SLIDE_OPEN_CLASS)
+    }
+  })
 
   return (
     <StyledHeader>
