@@ -17,7 +17,7 @@ module.exports = {
   favicon: 'src/images/favicon.png', // Used for manifest favicon generation
   shortName: 'W3T', // shortname for manifest. MUST be shorter than 12 characters
   author: '@randallonius', // Author for schemaORGJSONLD
-  themeColor: '#3D63AE',
+  themeColor: '#00c4cc',
   backgroundColor: '#EBEDF2',
 
   email: `${process.env.EMAIL}`, // Email handle

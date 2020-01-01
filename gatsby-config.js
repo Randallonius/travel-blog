@@ -38,19 +38,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `travel-blog`,
-        short_name: `travel-blog`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        name: website.title,
+        short_name: website.titleAlt,
+        start_url: pathPrefix,
+        background_color: website.backgroundColor,
+        theme_color: website.themeColor,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: website.favicon,
       },
     },
     {
       resolve: `gatsby-source-prismic`,
       options: {
-        repositoryName: 'we-three-travel-test',
+        repositoryName: 'we-three-travel',
         accessToken: `${process.env.API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
       },
@@ -58,13 +58,13 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram`,
       options: {
-        username: `${process.env.INSTAGRAM}`,
+        username: `we_three_travel`,
       },
     },
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `${process.env.DISQUS}`,
+        shortname: `wethreetravel`,
       },
     },
     'gatsby-plugin-netlify',
