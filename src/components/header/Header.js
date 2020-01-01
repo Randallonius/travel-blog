@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { SlideButtonContainer, SlideContainer } from '../slide'
@@ -79,14 +79,17 @@ const CategoryContainer = styled.div`
 
 const SLIDE_OPEN_CLASS = 'body--slide-open'
 
-function Header() {
+const Header = () => {
   const [open, setOpen] = useState(false)
 
-  if (open) {
-    document.body.classList.add(SLIDE_OPEN_CLASS)
-  } else {
-    document.body.classList.remove(SLIDE_OPEN_CLASS)
-  }
+  useEffect(() => {
+    // Update the document title using the browser API
+    if (open) {
+      document.body.classList.add(SLIDE_OPEN_CLASS)
+    } else {
+      document.body.classList.remove(SLIDE_OPEN_CLASS)
+    }
+  })
 
   return (
     <StyledHeader>

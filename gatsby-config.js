@@ -1,11 +1,25 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+
+const website = require('./config/website')
+
+const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
+
 module.exports = {
   siteMetadata: {
-    title: `Travel Blog Starter`,
-    description: `A Travel Blog setup integrating Prismic.io CMS and Netlify`,
-    author: `@randallonius`,
+    siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
+    pathPrefix,
+    title: website.title,
+    titleAlt: website.titleAlt,
+    description: website.description,
+    banner: website.logo,
+    headline: website.headline,
+    siteLanguage: website.siteLanguage,
+    ogLanguage: website.ogLanguage,
+    author: website.author,
+    twitter: website.twitter,
+    facebook: website.facebook,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -36,9 +50,9 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic`,
       options: {
-        repositoryName: `${process.env.REPO_NAME}`,
+        repositoryName: 'we-three-travel-test',
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+        linkResolver: () => post => `/${post.uid}`,
       },
     },
     {
@@ -53,6 +67,7 @@ module.exports = {
         shortname: `${process.env.DISQUS}`,
       },
     },
+    'gatsby-plugin-netlify',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
