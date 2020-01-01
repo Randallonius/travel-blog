@@ -1,0 +1,26 @@
+{
+  "Main" : {
+    "coordinate_marker" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "coordinate marker",
+        "placeholder" : "marker for the coordinates"
+      }
+    },
+    "coordinate_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading6",
+        "label" : "coordinate title",
+        "placeholder" : "Location of coordinates"
+      }
+    },
+    "coordinates" : {
+      "type" : "GeoPoint",
+      "config" : {
+        "label" : "coordinates"
+      }
+    }
+  }
+}

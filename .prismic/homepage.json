@@ -49,7 +49,7 @@
           "hero_image" : {
             "type" : "Slice",
             "fieldset" : "Hero Image",
-            "description" : "Main Post Image",
+            "description" : "Homepage Hero Image",
             "icon" : "camera",
             "display" : "list",
             "non-repeat" : {
@@ -58,6 +58,26 @@
                 "config" : {
                   "constraint" : {
                     "width" : 5000
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "image"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "title_image" : {
+            "type" : "Slice",
+            "fieldset" : "Title Image",
+            "description" : "Homepage Title Image",
+            "icon" : "camera",
+            "display" : "list",
+            "non-repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 500
                   },
                   "thumbnails" : [ ],
                   "label" : "image"
