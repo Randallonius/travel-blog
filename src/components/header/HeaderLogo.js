@@ -19,7 +19,7 @@ const HeaderLogo = () => {
       file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 125, maxHeight: 125) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

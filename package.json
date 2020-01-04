@@ -35,6 +35,7 @@
     "react-icons": "^3.8.0",
     "react-leaflet": "^2.5.0",
     "react-masonry-component": "^6.2.1",
+    "react-scroll-parallax": "^2.2.0",
     "typeface-poppins": "0.0.72"
   },
   "devDependencies": {
