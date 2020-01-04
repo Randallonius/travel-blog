@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { Parallax } from 'react-scroll-parallax'
 import styled from '@emotion/styled'
 import './HomepageHero.css'
 import BackgroundImage from 'gatsby-background-image'
@@ -39,9 +40,16 @@ const HomepageHeroContainer = () => {
   `)
   const imageData = data.homepage.data.body.map(s =>
     s.slice_type && s.slice_type === 'hero_image' ? (
-      <BackgroundImage Tag="section" className="bg" key={s.id} fluid={s.primary.image.localFile.childImageSharp.fluid}>
-        <HeroTitle />
-      </BackgroundImage>
+      <Parallax>
+        <BackgroundImage
+          Tag="section"
+          className="bg"
+          key={s.id}
+          fluid={s.primary.image.localFile.childImageSharp.fluid}
+        >
+          <HeroTitle />
+        </BackgroundImage>
+      </Parallax>
     ) : null
   )
   return <HeroContainer>{imageData}</HeroContainer>

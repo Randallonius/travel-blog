@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'emotion-theming'
 import { Global, css } from '@emotion/core'
+import { ParallaxProvider } from 'react-scroll-parallax'
 import Headroom from 'react-headroom'
 import { Header } from './header'
 import Footer from './Footer'
@@ -69,12 +70,14 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        <Global styles={globalStyle} />
-        <Headroom>
-          <Header siteTitle={data.site.siteMetadata.title} />
-        </Headroom>
-        <main>{children}</main>
-        <Footer />
+        <ParallaxProvider>
+          <Global styles={globalStyle} />
+          <Headroom>
+            <Header siteTitle={data.site.siteMetadata.title} />
+          </Headroom>
+          <main>{children}</main>
+          <Footer />
+        </ParallaxProvider>
       </>
     </ThemeProvider>
   )

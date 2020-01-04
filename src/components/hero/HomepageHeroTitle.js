@@ -74,7 +74,7 @@ const HeroTitle = () => {
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 400, maxHeight: 400, quality: 100) {
-                        ...GatsbyImageSharpFluid
+                        ...GatsbyImageSharpFluid_withWebp
                       }
                     }
                   }
