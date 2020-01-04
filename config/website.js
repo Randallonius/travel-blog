@@ -4,11 +4,11 @@ require('dotenv').config({
 
 module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
-  title: `${process.env.TITLE}`, // Navigation and Site Title
-  titleAlt: `${process.env.TITLE_ALT}`, // Title for JSONLD
-  description: `${process.env.DESCP}`,
-  headline: `Writing and publishing content for ${process.env.TITLE_ALT}`, // Headline for schema.org JSONLD
-  url: `${process.env.URL}`, // Domain of your site. No trailing slash!
+  title: `We Three Travel - a families travel blog`, // Navigation and Site Title
+  titleAlt: `We Three Travel`, // Title for JSONLD
+  description: `A travel blog that focuses on budget sustainable international travel with a family`,
+  headline: `Writing and publishing content for We Three Travel`, // Headline for schema.org JSONLD
+  url: `https://unruffled-jennings-06910a.netlify.com`, // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   logo: '/logos/logo.png', // Used for SEO
   ogLanguage: 'en_US', // Facebook Language
@@ -23,6 +23,6 @@ module.exports = {
   email: `${process.env.EMAIL}`, // Email handle
   twitter: '', // Twitter Username
   facebook: '', // Facebook Site Name
-  instagram: `${process.env.INSTAGRAM}`, // Instagram handle
+  instagram: `we_three_travel`, // Instagram handle
   googleAnalyticsID: `${process.env.ANALYTICS}`,
 }
