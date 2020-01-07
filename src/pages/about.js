@@ -19,11 +19,6 @@ const AboutPageWrapper = styled.div`
 const HeroInnerImage = styled.div`
   width: 100%;
   margin-bottom: 2rem;
-  @media (min-width: ${props => props.theme.breakpoints.l}) {
-    .gatsby-image-wrapper {
-      max-height: 500px;
-    }
-  }
   div {
     padding: 0;
   }
