@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { Parallax } from 'react-scroll-parallax'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
@@ -44,7 +45,7 @@ const HeroTitle = () => {
   navRef.current = boxBackground
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 120
+      const show = window.scrollY > 300
       if (navRef.current !== show) {
         setboxBackground(show)
       }
@@ -95,9 +96,13 @@ const HeroTitle = () => {
 
   const style = {
     opacity: boxBackground ? 0 : 1,
-    transition: '.5s ease',
+    transition: '1s ease',
   }
-  return <Title style={style}>{TitleImage}</Title>
+  return (
+    <Title style={style}>
+      <Parallax y={[0, 35]}>{TitleImage}</Parallax>
+    </Title>
+  )
 }
 
 export default HeroTitle
