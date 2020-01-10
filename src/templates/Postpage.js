@@ -26,14 +26,14 @@ const PostPage = ({ topic, posts, location, totalCount }) => {
                 case `/categories/${topicLowerCase}`:
                   return (
                     <Title>
-                      {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} categorized as{' '}
-                      {topic}"
+                      {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} categorized
+                      as "{topic}"
                     </Title>
                   )
                 case `/tags/${topicLowerCase}`:
                   return (
                     <Title>
-                      {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} tagged as{' '}
+                      {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} tagged as "
                       {topic}"
                     </Title>
                   )
