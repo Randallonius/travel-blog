@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 const Content = styled.div`
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  max-width: 600px;
 `
 const ImageDescription = styled.div`
   padding-top: 0.9rem;

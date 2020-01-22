@@ -17,11 +17,22 @@ const Slide = styled.div`
   top: 0;
   right: 0;
   transition: transform 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
+  -moz-transition: transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   z-index: 1000;
+  -ms-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -o-transform: translateX(100%);
   transform: translateX(100%);
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  -ms-transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  -webkit-transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  -moz-transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  -o-transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
 
   @media screen and (min-width: ${props => props.theme.breakpoints.s}) {
     width: 80vw;
@@ -80,7 +91,7 @@ const SlideContainer = ({ open, setOpen }) => {
       <Title>On Deck</Title>
       <SubTitle>{data.prismicHomepage.data.ondeck.text}</SubTitle>
       <Title>Where have we been?</Title>
-      <MapContainer />
+      <MapContainer open={open} />
     </Slide>
   )
 }
