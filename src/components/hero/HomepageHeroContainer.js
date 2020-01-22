@@ -2,7 +2,6 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Parallax } from 'react-scroll-parallax'
 import styled from '@emotion/styled'
-import './HomepageHero.css'
 import BackgroundImage from 'gatsby-background-image'
 import HeroTitle from './HomepageHeroTitle'
 
