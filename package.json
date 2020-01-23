@@ -1,9 +1,9 @@
 {
   "name": "travel-blog-starter",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A Travel blog created to be used with Prismic CMS and Netlify",
   "version": "0.1.0",
-  "author": "Jonathan Randall <jonathanprandall@gmail.com>",
+  "author": "Randallonius <jonathanprandall@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
@@ -67,9 +67,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/randallonius/travel-blog"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/randallonius/travel-blogissues"
   }
 }
