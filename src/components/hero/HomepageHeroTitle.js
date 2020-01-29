@@ -12,18 +12,6 @@ const Title = styled.div`
   color: #000;
   width: 100%;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.s}) {
-    top: 30%;
-  }
-
-  @media screen and (min-width: ${props => props.theme.breakpoints.m}) {
-    top: 15%;
-  }
-
-  @media screen and (min-width: ${props => props.theme.breakpoints.l}) {
-    top: 10%;
-  }
-
   .gatsby-image-wrapper {
     width: 30vw;
     margin: 0 auto;
