@@ -8,7 +8,7 @@ module.exports = {
   titleAlt: `We Three Travel`, // Title for JSONLD
   description: `A travel blog that focuses on budget sustainable international travel with a family`,
   headline: `Writing and publishing content for We Three Travel`, // Headline for schema.org JSONLD
-  url: `https://unruffled-jennings-06910a.netlify.com`, // Domain of your site. No trailing slash!
+  url: `https://wethreetravel.com`, // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   logo: '/logos/logo.png', // Used for SEO
   ogLanguage: 'en_US', // Facebook Language
@@ -20,9 +20,9 @@ module.exports = {
   themeColor: '#00c4cc',
   backgroundColor: '#EBEDF2',
 
-  email: `${process.env.EMAIL}`, // Email handle
+  email: `wethreetravelers@gmail.com`, // Email handle
   twitter: '', // Twitter Username
   facebook: '', // Facebook Site Name
   instagram: `we_three_travel`, // Instagram handle
-  googleAnalyticsID: `${process.env.ANALYTICS}`,
+  googleAnalyticsID: `UA-141685341-1`,
 }
