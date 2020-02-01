@@ -7,6 +7,7 @@ import HeroTitle from './HomepageHeroTitle'
 const HeroContainer = styled.div`
   width: 100%;
   background-color: white;
+  position: relative;
 `
 
 const HomepageHeroContainer = () => {
@@ -38,8 +39,8 @@ const HomepageHeroContainer = () => {
   `)
   const imageData = data.homepage.data.body.map(s =>
     s.slice_type && s.slice_type === 'hero_image' ? (
-      <div>
-        <Img key={s.id} fluid={s.primary.image.localFile.childImageSharp.fluid} />
+      <div key={s.id}>
+        <Img fluid={s.primary.image.localFile.childImageSharp.fluid} />
         <HeroTitle />
       </div>
     ) : null

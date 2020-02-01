@@ -7,7 +7,7 @@ import styled from '@emotion/styled'
 const Title = styled.div`
   position: absolute;
   left: 0;
-  top: 30%;
+  top: 10%;
   text-align: center;
   color: #000;
   width: 100%;
