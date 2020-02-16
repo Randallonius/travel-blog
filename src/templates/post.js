@@ -157,6 +157,7 @@ export const pageQuery = graphql`
           text
         }
         date(formatString: "MMMM DD, YYYY")
+        description
         categories {
           category {
             document {
