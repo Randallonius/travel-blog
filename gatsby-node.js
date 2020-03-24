@@ -154,7 +154,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   tagList.forEach(tag => {
     createPage({
-      path: `/tags/${_.kebabCase(tag)}`,
+      path: `/tags/${_.kebabCase(tag.name)}`,
       component: tagTemplate,
       context: {
         ID: tag.id,
