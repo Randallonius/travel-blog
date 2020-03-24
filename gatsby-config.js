@@ -49,17 +49,26 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `we_three_travel`,
+      },
+    },
+    {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: 'we-three-travel',
         accessToken: `${process.env.API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
-      },
-    },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `we_three_travel`,
+        schemas: {
+          homepage: require('./src/schemas/homepage.json'),
+          post: require('./src/schemas/post.json'),
+          aboutpage: require('./src/schemas/about.json'),
+          author: require('./src/schemas/author.json'),
+          category: require('./src/schemas/category.json'),
+          geo: require('./src/schemas/geo.json'),
+          tag: require('./src/schemas/tag.json'),
+        },
       },
     },
     {

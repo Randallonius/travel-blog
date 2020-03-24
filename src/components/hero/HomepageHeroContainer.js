@@ -22,12 +22,8 @@ const HomepageHeroContainer = () => {
               primary {
                 image {
                   alt
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 1600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
+                  fluid(maxWidth: 1600) {
+                    ...GatsbyPrismicImageFluid
                   }
                 }
               }
@@ -40,7 +36,7 @@ const HomepageHeroContainer = () => {
   const imageData = data.homepage.data.body.map(s =>
     s.slice_type && s.slice_type === 'hero_image' ? (
       <div key={s.id}>
-        <Img fluid={s.primary.image.localFile.childImageSharp.fluid} />
+        <Img fluid={s.primary.image.fluid} />
         <HeroTitle />
       </div>
     ) : null

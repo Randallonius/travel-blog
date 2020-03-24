@@ -134,12 +134,6 @@ export const pageQuery = graphql`
         about_content {
           text
         }
-        contact_title {
-          text
-        }
-        contact_content {
-          html
-        }
         body {
           ... on PrismicAboutpageBodyHeroImage {
             slice_type

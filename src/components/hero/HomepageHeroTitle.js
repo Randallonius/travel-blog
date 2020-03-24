@@ -60,12 +60,8 @@ const HeroTitle = () => {
               id
               primary {
                 image {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 400, maxHeight: 400, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
+                  fluid(maxWidth: 400, maxHeight: 400) {
+                    ...GatsbyPrismicImageFluid
                   }
                 }
               }
@@ -77,9 +73,7 @@ const HeroTitle = () => {
   `)
 
   const TitleImage = data.homepage.data.body.map(s =>
-    s.slice_type && s.slice_type === 'title_image' ? (
-      <Img key={s.id} fluid={s.primary.image.localFile.childImageSharp.fluid} />
-    ) : null
+    s.slice_type && s.slice_type === 'title_image' ? <Img key={s.id} fluid={s.primary.image.fluid} /> : null
   )
 
   const style = {
