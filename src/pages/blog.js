@@ -95,12 +95,9 @@ export const pageQuery = graphql`
                 id
                 primary {
                   image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 400, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
+                    alt
+                    fluid(maxWidth: 400) {
+                      ...GatsbyPrismicImageFluid
                     }
                   }
                 }

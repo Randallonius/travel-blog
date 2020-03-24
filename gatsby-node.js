@@ -86,26 +86,25 @@ exports.createPages = async ({ graphql, actions }) => {
   const categorySet = new Set()
   const tagSet = new Set()
   const postsList = result.data.allPrismicPost.edges
-  console.log('>>>HERE', postsList)
 
   // Double check that the post has a author, category, or tag assigned
 
   postsList.forEach(edge => {
-    // if (edge.node.data.author_group[0].author) {
-    //   edge.node.data.author_group.forEach(a => {
-    //     authorSet.add(a.author.document[0].data.name)
-    //   })
-    // }
+    if (edge.node.data.author_group[0].author) {
+      edge.node.data.author_group.forEach(a => {
+        authorSet.add(a.author.document.data.name)
+      })
+    }
 
     // if (edge.node.data.categories[0].category) {
     //   edge.node.data.categories.forEach(cat => {
-    //     categorySet.add(cat.category.document[0].data.name)
+    //     categorySet.add(cat.category.document.data.name)
     //   })
     // }
 
     // if (edge.node.data.tags[0].tag) {
     //   edge.node.data.tags.forEach(t => {
-    //     tagSet.add(t.tag.document[0].data.name)
+    //     tagSet.add(t.tag.document.data.name)
     //   })
     // }
 
@@ -120,21 +119,17 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  console.log('>>>TAG SET', tagSet)
-  console.log('>>>CATEGORY SET', categorySet)
-  console.log('>>>AUTHOR SET', authorSet)
-
   const authorList = Array.from(authorSet)
 
-  // authorList.forEach(author => {
-  //   createPage({
-  //     path: `/authors/${_.kebabCase(author)}`,
-  //     component: authorTemplate,
-  //     context: {
-  //       author,
-  //     },
-  //   })
-  // })
+  authorList.forEach(author => {
+    createPage({
+      path: `/authors/${_.kebabCase(author)}`,
+      component: authorTemplate,
+      context: {
+        author,
+      },
+    })
+  })
 
   const categoryList = Array.from(categorySet)
 
@@ -159,4 +154,8 @@ exports.createPages = async ({ graphql, actions }) => {
   //     },
   //   })
   // })
+
+  console.log('>>>TAG SET', authorList)
+  // console.log('>>>CATEGORY SET', categoryList)
+  // console.log('>>>AUTHOR SET', tagList)
 }

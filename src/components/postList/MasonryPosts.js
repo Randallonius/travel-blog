@@ -25,7 +25,6 @@ class MasonryPosts extends Component {
           {posts.map(post => {
             let categories = false
             let author = false
-            console.log('>>>CAT', post.node.data)
             if (post.node.data.categories[0].category) {
               categories = post.node.data.categories.map(c => c.category.document.data.name)
             }
