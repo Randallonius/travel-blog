@@ -34,14 +34,10 @@ Author.propTypes = {
 export default Author
 
 export const pageQuery = graphql`
-  query AuthorPage($author: String!) {
+  query AuthorPage($ID: ID!) {
     authPosts: allPrismicPost(
       sort: { fields: [data___date], order: DESC }
-      filter: {
-        data: {
-          author_group: { elemMatch: { author: { document: { elemMatch: { data: { name: { eq: $author } } } } } } }
-        }
-      }
+      filter: { data: { author_group: { elemMatch: { author: { id: { eq: $ID } } } } } }
     ) {
       totalCount
       edges {
@@ -100,12 +96,8 @@ export const pageQuery = graphql`
                 id
                 primary {
                   image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 800, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
+                    fluid(maxWidth: 800, maxHeight: 400) {
+                      ...GatsbyPrismicImageFluid
                     }
                   }
                 }

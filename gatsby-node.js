@@ -1,4 +1,3 @@
-
 const _ = require('lodash')
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -47,9 +46,12 @@ exports.createPages = async ({ graphql, actions }) => {
                   category {
                     document {
                       ... on PrismicCategory {
-                        id
+                        data {
+                          name
+                        }
                       }
                     }
+                    id
                   }
                 }
                 tags {
@@ -61,17 +63,20 @@ exports.createPages = async ({ graphql, actions }) => {
                         }
                       }
                     }
+                    id
                   }
                 }
                 author_group {
                   author {
                     document {
                       ... on PrismicAuthor {
+                        id
                         data {
                           name
                         }
                       }
                     }
+                    id
                   }
                 }
               }
@@ -92,21 +97,21 @@ exports.createPages = async ({ graphql, actions }) => {
   postsList.forEach(edge => {
     if (edge.node.data.author_group[0].author) {
       edge.node.data.author_group.forEach(a => {
-        authorSet.add(a.author.document.data.name)
+        authorSet.add({ id: a.author.id, name: a.author.document.data.name })
       })
     }
 
-    // if (edge.node.data.categories[0].category) {
-    //   edge.node.data.categories.forEach(cat => {
-    //     categorySet.add(cat.category.document.data.name)
-    //   })
-    // }
+    if (edge.node.data.categories[0].category) {
+      edge.node.data.categories.forEach(cat => {
+        categorySet.add({ id: cat.category.id, name: cat.category.document.data.name })
+      })
+    }
 
-    // if (edge.node.data.tags[0].tag) {
-    //   edge.node.data.tags.forEach(t => {
-    //     tagSet.add(t.tag.document.data.name)
-    //   })
-    // }
+    if (edge.node.data.tags[0].tag) {
+      edge.node.data.tags.forEach(t => {
+        tagSet.add({ id: t.tag.id, name: t.tag.document.data.name })
+      })
+    }
 
     // The uid you assigned in Prismic is the slug!
     createPage({
@@ -123,39 +128,38 @@ exports.createPages = async ({ graphql, actions }) => {
 
   authorList.forEach(author => {
     createPage({
-      path: `/authors/${_.kebabCase(author)}`,
+      path: `/authors/${_.kebabCase(author.name)}`,
       component: authorTemplate,
       context: {
-        author,
+        ID: author.id,
+        author: author.name,
       },
     })
   })
 
   const categoryList = Array.from(categorySet)
 
-  // categoryList.forEach(category => {
-  //   createPage({
-  //     path: `/categories/${_.kebabCase(category)}`,
-  //     component: categoryTemplate,
-  //     context: {
-  //       category,
-  //     },
-  //   })
-  // })
+  categoryList.forEach(category => {
+    createPage({
+      path: `/categories/${_.kebabCase(category.name)}`,
+      component: categoryTemplate,
+      context: {
+        ID: category.id,
+        category: category.name,
+      },
+    })
+  })
 
   const tagList = Array.from(tagSet)
 
-  // tagList.forEach(tag => {
-  //   createPage({
-  //     path: `/tags/${_.kebabCase(tag)}`,
-  //     component: tagTemplate,
-  //     context: {
-  //       tag,
-  //     },
-  //   })
-  // })
-
-  console.log('>>>TAG SET', authorList)
-  // console.log('>>>CATEGORY SET', categoryList)
-  // console.log('>>>AUTHOR SET', tagList)
+  tagList.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag)}`,
+      component: tagTemplate,
+      context: {
+        ID: tag.id,
+        tag: tag.name,
+      },
+    })
+  })
 }
