@@ -6,6 +6,14 @@ const website = require('./config/website')
 
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
 
+const postPath = require('./src/schemas/post.json')
+const homepagePath = require('./src/schemas/homepage.json')
+const aboutPath = require('./src/schemas/about.json')
+const authorPath = require('./src/schemas/author.json')
+const catPath = require('./src/schemas/category.json')
+const geoPath = require('./src/schemas/geo.json')
+const tagPath = require('./src/schemas/tag.json')
+
 module.exports = {
   siteMetadata: {
     siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
@@ -61,13 +69,13 @@ module.exports = {
         accessToken: `${process.env.API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
         schemas: {
-          homepage: require('./src/schemas/homepage.json'),
-          post: require('./src/schemas/post.json'),
-          aboutpage: require('./src/schemas/about.json'),
-          author: require('./src/schemas/author.json'),
-          category: require('./src/schemas/category.json'),
-          geo: require('./src/schemas/geo.json'),
-          tag: require('./src/schemas/tag.json'),
+          homepage: homepagePath,
+          post: postPath,
+          aboutpage: aboutPath,
+          author: authorPath,
+          category: catPath,
+          geo: geoPath,
+          tag: tagPath,
         },
       },
     },
