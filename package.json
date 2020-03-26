@@ -39,6 +39,7 @@
     "typeface-poppins": "0.0.72"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
     "babel-eslint": "^10.0.3",
     "dotenv": "^8.1.0",
     "eslint": "^6.6.0",
