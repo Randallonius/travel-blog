@@ -78,7 +78,7 @@ class AboutPage extends Component {
     const author = authors.edges.map(a => (
       <AuthorContainer>
         <div>
-          <Img fluid={a.node.data.image.localFile.childImageSharp.fluid} />
+          <Img fluid={a.node.data.image.fluid} />
         </div>
         <AuthorBlock>
           <AuthorName>{a.node.data.name}</AuthorName>
@@ -134,24 +134,15 @@ export const pageQuery = graphql`
         about_content {
           text
         }
-        contact_title {
-          text
-        }
-        contact_content {
-          html
-        }
         body {
           ... on PrismicAboutpageBodyHeroImage {
             slice_type
             id
             primary {
               image {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1200, quality: 90) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
+                alt
+                fluid(maxWidth: 1200) {
+                  ...GatsbyPrismicImageFluid
                 }
               }
             }
@@ -169,12 +160,9 @@ export const pageQuery = graphql`
             favorite_country
             title
             image {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 500, quality: 90) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
+              alt
+              fluid(maxWidth: 500) {
+                ...GatsbyPrismicImageFluid
               }
             }
           }

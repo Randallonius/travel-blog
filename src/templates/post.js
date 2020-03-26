@@ -85,13 +85,13 @@ const Post = ({ data: { prismicPost }, location }) => {
   let author = false
   let tags = false
   if (data.categories[0].category) {
-    categories = data.categories.map(c => c.category.document[0].data.name)
+    categories = data.categories.map(c => c.category.document.data.name)
   }
   if (data.author_group[0].author) {
-    author = data.author_group.map(a => a.author.document[0].data.name)
+    author = data.author_group.map(a => a.author.document.data.name)
   }
   if (data.tags[0].tag) {
-    tags = data.tags.map(t => t.tag.document[0].data.name)
+    tags = data.tags.map(t => t.tag.document.data.name)
   }
   const disqusConfig = {
     url: `${website.url}${location.pathname}`,
@@ -160,8 +160,10 @@ export const pageQuery = graphql`
         categories {
           category {
             document {
-              data {
-                name
+              ... on PrismicCategory {
+                data {
+                  name
+                }
               }
             }
           }
@@ -169,8 +171,10 @@ export const pageQuery = graphql`
         tags {
           tag {
             document {
-              data {
-                name
+              ... on PrismicTag {
+                data {
+                  name
+                }
               }
             }
           }
@@ -178,12 +182,14 @@ export const pageQuery = graphql`
         author_group {
           author {
             document {
-              data {
-                name
-                interests
-                stamps
-                favorite_country
-                title
+              ... on PrismicAuthor {
+                data {
+                  name
+                  interests
+                  stamps
+                  favorite_country
+                  title
+                }
               }
             }
           }
@@ -204,12 +210,8 @@ export const pageQuery = graphql`
             primary {
               image {
                 alt
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 600, quality: 80) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
+                fluid(maxWidth: 600) {
+                  ...GatsbyPrismicImageFluid
                 }
               }
             }
@@ -220,12 +222,8 @@ export const pageQuery = graphql`
             primary {
               image {
                 alt
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1200, quality: 90) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
+                fluid(maxWidth: 1200) {
+                  ...GatsbyPrismicImageFluid
                 }
               }
             }

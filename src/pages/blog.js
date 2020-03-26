@@ -46,8 +46,10 @@ export const pageQuery = graphql`
             categories {
               category {
                 document {
-                  data {
-                    name
+                  ... on PrismicCategory {
+                    data {
+                      name
+                    }
                   }
                 }
               }
@@ -55,8 +57,10 @@ export const pageQuery = graphql`
             tags {
               tag {
                 document {
-                  data {
-                    name
+                  ... on PrismicTag {
+                    data {
+                      name
+                    }
                   }
                 }
               }
@@ -64,12 +68,14 @@ export const pageQuery = graphql`
             author_group {
               author {
                 document {
-                  data {
-                    name
-                    interests
-                    stamps
-                    favorite_country
-                    title
+                  ... on PrismicAuthor {
+                    data {
+                      name
+                      interests
+                      stamps
+                      favorite_country
+                      title
+                    }
                   }
                 }
               }
@@ -89,12 +95,9 @@ export const pageQuery = graphql`
                 id
                 primary {
                   image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 400, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
+                    alt
+                    fluid(maxWidth: 400) {
+                      ...GatsbyPrismicImageFluid
                     }
                   }
                 }

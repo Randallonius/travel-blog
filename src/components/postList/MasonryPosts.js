@@ -26,10 +26,10 @@ class MasonryPosts extends Component {
             let categories = false
             let author = false
             if (post.node.data.categories[0].category) {
-              categories = post.node.data.categories.map(c => c.category.document[0].data.name)
+              categories = post.node.data.categories.map(c => c.category.document.data.name)
             }
             if (post.node.data.author_group[0].author) {
-              author = post.node.data.author_group.map(a => a.author.document[0].data.name)
+              author = post.node.data.author_group.map(a => a.author.document.data.name)
             }
             return (
               <PostItem

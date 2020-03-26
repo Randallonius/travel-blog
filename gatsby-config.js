@@ -6,6 +6,14 @@ const website = require('./config/website')
 
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
 
+const postPath = require('./src/schemas/post.json')
+const homepagePath = require('./src/schemas/homepage.json')
+const aboutPath = require('./src/schemas/about.json')
+const authorPath = require('./src/schemas/author.json')
+const catPath = require('./src/schemas/category.json')
+const geoPath = require('./src/schemas/geo.json')
+const tagPath = require('./src/schemas/tag.json')
+
 module.exports = {
   siteMetadata: {
     siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
@@ -49,17 +57,26 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `we_three_travel`,
+      },
+    },
+    {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: 'we-three-travel',
         accessToken: `${process.env.API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
-      },
-    },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `we_three_travel`,
+        schemas: {
+          homepage: homepagePath,
+          post: postPath,
+          aboutpage: aboutPath,
+          author: authorPath,
+          category: catPath,
+          geo: geoPath,
+          tag: tagPath,
+        },
       },
     },
     {

@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 
 const Hero = ({ input }) => (
   <div>
-    <Img fluid={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt} />
+    <Img fluid={input.primary.image.fluid} alt={input.primary.image.alt} />
   </div>
 )
 

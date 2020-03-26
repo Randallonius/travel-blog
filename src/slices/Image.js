@@ -15,7 +15,7 @@ const ImageDescription = styled.div`
 `
 const Image = ({ input }) => (
   <Content>
-    <Img fluid={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt}/>
+    <Img fluid={input.primary.image.fluid} alt={input.primary.image.alt} />
     <ImageDescription>
       <span>{input.primary.image.alt}</span>
     </ImageDescription>

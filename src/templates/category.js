@@ -34,14 +34,10 @@ Category.propTypes = {
 export default Category
 
 export const pageQuery = graphql`
-  query CategoryPage($category: String!) {
+  query CategoryPage($ID: ID!) {
     catPosts: allPrismicPost(
       sort: { fields: [data___date], order: DESC }
-      filter: {
-        data: {
-          categories: { elemMatch: { category: { document: { elemMatch: { data: { name: { eq: $category } } } } } } }
-        }
-      }
+      filter: { data: { categories: { elemMatch: { category: { id: { eq: $ID } } } } } }
     ) {
       totalCount
       edges {
@@ -55,8 +51,10 @@ export const pageQuery = graphql`
             categories {
               category {
                 document {
-                  data {
-                    name
+                  ... on PrismicCategory {
+                    data {
+                      name
+                    }
                   }
                 }
               }
@@ -64,8 +62,10 @@ export const pageQuery = graphql`
             tags {
               tag {
                 document {
-                  data {
-                    name
+                  ... on PrismicTag {
+                    data {
+                      name
+                    }
                   }
                 }
               }
@@ -73,12 +73,14 @@ export const pageQuery = graphql`
             author_group {
               author {
                 document {
-                  data {
-                    name
-                    interests
-                    stamps
-                    favorite_country
-                    title
+                  ... on PrismicAuthor {
+                    data {
+                      name
+                      interests
+                      stamps
+                      favorite_country
+                      title
+                    }
                   }
                 }
               }
@@ -98,12 +100,8 @@ export const pageQuery = graphql`
                 id
                 primary {
                   image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 800, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
+                    fluid(maxWidth: 800, maxHeight: 400) {
+                      ...GatsbyPrismicImageFluid
                     }
                   }
                 }
